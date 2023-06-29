@@ -1,0 +1,51 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    //  eslint linting autofix
+    "editor.codeActionsOnSave": {
+        "editor.action.fixAll": true,
+        "source.fixAll": true,
+        "source.fixAll.eslint": true
+    },
+    // 불필요한 탐색 제거
+    "search.exclude": {
+        "**/.yarn": true,
+        "**/.pnp.*": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/tsconfig.tsbuildinfo": true,
+        ".eslintcache": true
+    },
+    // monorepo eslint 파일 위치 탐색
+    "eslint.workingDirectories": [
+        {
+            "pattern": "./packages/*/"
+        }
+    ],
+    // workspace sdk eslint 사용
+    "eslint.nodePath": ".yarn/sdks",
+    // linting 스크립트 범위
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    // workspace sdk prettier 사용
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    // workspace sdk typescript 사용
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    // workspace sdk typescript 허용
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    // vscode 타입스크립트 활성화 (개인 설정 무효화용)
+    "typescript.validate.enable": true,
+    "files.watcherExclude": {
+        "**/.fttemplates/**": true
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[dotenv]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "prettier.tabWidth": 4
+}

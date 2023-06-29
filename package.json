@@ -1,0 +1,29 @@
+{
+    "name": "monorepo-boilerplate",
+    "packageManager": "yarn@3.5.0",
+    "private": true,
+    "workspaces": [
+        "products/*",
+        "packages/*",
+        "nm-packages/*"
+    ],
+    "scripts": {
+        "ma": "yarn workspace my-app",
+        "na": "yarn workspace next-app",
+        "nap": "yarn workspace next-app-pages",
+        "utils": "yarn workspace @common/utils",
+        "components": "yarn workspace @common/components",
+        "packages-build": "yarn workspaces foreach -ptR --from '{@common/utils,@common/components}' run build"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.56.0",
+        "@typescript-eslint/parser": "^5.56.0",
+        "eslint": "^8.36.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.32.2",
+        "prettier": "^2.8.6",
+        "typescript": "^5.0.2"
+    }
+}
