@@ -16274,6 +16274,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "monorepo-boilerplate@workspace:."
   dependencies:
+    "@types/react": ^18.0.8
     "@typescript-eslint/eslint-plugin": ^5.59.0
     "@typescript-eslint/parser": ^5.59.0
     eslint: ^8.38.0
@@ -16284,6 +16285,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: ^7.32.2
     prettier: ^2.8.6
+    react: ^18.2.0
     typescript: ^5.0.2
   languageName: unknown
   linkType: soft
@@ -22405,9 +22407,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-ssr-project@workspace:projects/vite-ssr-project":
+"vite-ssr-project@workspace:nm-projects/vite-ssr-project":
   version: 0.0.0-use.local
-  resolution: "vite-ssr-project@workspace:projects/vite-ssr-project"
+  resolution: "vite-ssr-project@workspace:nm-projects/vite-ssr-project"
   dependencies:
     "@types/compression": ^1.7.2
     "@types/express": ^4.17.14

@@ -113,6 +113,7 @@ dist
 !.yarn/versions
 
 nm-packages/**/.yarn/*
+nm-projects/**/.yarn/*
 
 # local hosting
 .certs
