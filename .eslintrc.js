@@ -1,4 +1,5 @@
 module.exports = {
+    root: true,
     plugins: ['react', 'prettier', 'perfectionist', 'html'],
     extends: ['eslint:recommended', 'prettier'],
     rules: {
@@ -20,6 +21,8 @@ module.exports = {
         'jest.config.js',
         'manifest.json',
         'next.config.js',
+        // 하위 종속성 eslint 버전차이로 임시 제외
+        'vite-ssr-project',
     ],
     overrides: [
         {

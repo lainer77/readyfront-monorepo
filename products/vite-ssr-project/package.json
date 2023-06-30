@@ -32,5 +32,10 @@
         "vite": "^4.0.3",
         "vite-plugin-ssr": "^0.4.132"
     },
-    "type": "module"
+    "type": "module",
+    "devDependencies": {
+        "eslint-plugin-html": "^7.1.0",
+        "eslint-plugin-perfectionist": "^1.4.0",
+        "eslint-plugin-prettier": "^4.2.1"
+    }
 }
