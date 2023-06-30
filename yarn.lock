@@ -10344,9 +10344,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cv@workspace:products/CV":
+"cv@workspace:projects/CV":
   version: 0.0.0-use.local
-  resolution: "cv@workspace:products/CV"
+  resolution: "cv@workspace:projects/CV"
   dependencies:
     "@types/react": ^18.0.37
     "@types/react-dom": ^18.0.11
@@ -16349,9 +16349,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"my-app@workspace:products/my-app":
+"my-app@workspace:projects/my-app":
   version: 0.0.0-use.local
-  resolution: "my-app@workspace:products/my-app"
+  resolution: "my-app@workspace:projects/my-app"
   dependencies:
     "@common/utils": "workspace:^"
     "@testing-library/jest-dom": ^5.16.5
@@ -16460,9 +16460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-app-pages@workspace:products/next-app-pages":
+"next-app-pages@workspace:projects/next-app-pages":
   version: 0.0.0-use.local
-  resolution: "next-app-pages@workspace:products/next-app-pages"
+  resolution: "next-app-pages@workspace:projects/next-app-pages"
   dependencies:
     "@chakra-ui/next-js": ^2.1.4
     "@chakra-ui/react": ^2.7.1
@@ -16478,9 +16478,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"next-app@workspace:products/next-app":
+"next-app@workspace:projects/next-app":
   version: 0.0.0-use.local
-  resolution: "next-app@workspace:products/next-app"
+  resolution: "next-app@workspace:projects/next-app"
   dependencies:
     "@chakra-ui/next-js": ^2.1.4
     "@chakra-ui/react": ^2.7.1
@@ -22405,9 +22405,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-ssr-project@workspace:products/vite-ssr-project":
+"vite-ssr-project@workspace:projects/vite-ssr-project":
   version: 0.0.0-use.local
-  resolution: "vite-ssr-project@workspace:products/vite-ssr-project"
+  resolution: "vite-ssr-project@workspace:projects/vite-ssr-project"
   dependencies:
     "@types/compression": ^1.7.2
     "@types/express": ^4.17.14
