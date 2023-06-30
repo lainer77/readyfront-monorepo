@@ -1,22 +1,16 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["react", "@typescript-eslint", "prettier", "perfectionist"],
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended",
-        "prettier"
-    ],
+    "plugins": ["react", "prettier", "perfectionist", "html"],
+    "extends": ["eslint:recommended", "prettier"],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "rules": {
         "prettier/prettier": "error",
         // perfectionist 와 충돌되는 규칙
         "import/order": "off",
         "sort-imports": "off"
-    },
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
     },
     "ignorePatterns": [
         "build",
@@ -25,12 +19,23 @@
         "package.json",
         "tsconfig.json",
         "tsconfig.node.json",
-        ".eslintrc.*"
+        ".eslintrc.*",
+        "LICENSE",
+        ".md",
+        "jest.config.js",
+        "manifest.json",
+        "next.config.js"
     ],
     "overrides": [
         {
             "files": ["**/*.ts?(x)", "**/*.js?(x)"],
-            "extends": ["plugin:perfectionist/recommended-natural"],
+            "plugins": ["@typescript-eslint"],
+            "parser": "@typescript-eslint/parser",
+            "extends": [
+                "plugin:@typescript-eslint/recommended",
+                "plugin:react/recommended",
+                "plugin:perfectionist/recommended-natural"
+            ],
             "parserOptions": {
                 "ecmaFeatures": {
                     "jsx": true
@@ -39,6 +44,8 @@
             "rules": {
                 // react import 생략 가능하도록
                 "react/react-in-jsx-scope": "off",
+                "react/prop-types": "off",
+                "react/no-unescaped-entities": "off",
                 "perfectionist/sort-objects": [
                     "error",
                     {
@@ -49,7 +56,7 @@
             }
         },
         {
-            "files": ["**/*.css", "**/*.html", "**/*.json"],
+            "files": ["**/*.html", "**/*.json"],
             "extends": ["plugin:perfectionist/recommended-line-length"],
             "rules": {
                 "perfectionist/sort-objects": [
