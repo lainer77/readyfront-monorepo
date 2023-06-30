@@ -28,6 +28,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/common-utils"\
       },\
       {\
+        "name": "cv",\
+        "reference": "workspace:products/CV"\
+      },\
+      {\
         "name": "my-app",\
         "reference": "workspace:products/my-app"\
       },\
@@ -45,6 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [\
       ["@common/components", ["workspace:packages/common-components"]],\
       ["@common/utils", ["workspace:packages/common-utils"]],\
+      ["cv", ["workspace:products/CV"]],\
       ["monorepo-boilerplate", ["workspace:."]],\
       ["my-app", ["workspace:products/my-app"]],\
       ["next-app", ["workspace:products/next-app"]],\
@@ -13859,6 +13864,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "vite"\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:3.3.2", {\
+          "packageLocation": "./.yarn/__virtual__/@vitejs-plugin-react-swc-virtual-97f4d459bb/0/cache/@vitejs-plugin-react-swc-npm-3.3.2-113c9f5a72-1e44b1b7c5.zip/node_modules/@vitejs/plugin-react-swc/",\
+          "packageDependencies": [\
+            ["@vitejs/plugin-react-swc", "virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:3.3.2"],\
+            ["@swc/core", "virtual:b11e684a94f90f09436eb416d4cce8bea8c83a4afb39d013dc7cfc07aa75583d144c10ec2505b7cec4729cf7968bae158ac0470190bf368d56cd9a3063c40b6e#npm:1.3.66"],\
+            ["@types/vite", null],\
+            ["vite", "virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:4.3.9"]\
+          ],\
+          "packagePeers": [\
+            "@types/vite",\
+            "vite"\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@webassemblyjs/ast", [\
@@ -17696,6 +17715,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["array-find-index", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["cv", [\
+        ["workspace:products/CV", {\
+          "packageLocation": "./products/CV/",\
+          "packageDependencies": [\
+            ["cv", "workspace:products/CV"],\
+            ["@types/react", "npm:18.2.14"],\
+            ["@types/react-dom", "npm:18.0.11"],\
+            ["@typescript-eslint/eslint-plugin", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:5.60.1"],\
+            ["@typescript-eslint/parser", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:5.60.1"],\
+            ["@vitejs/plugin-react-swc", "virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:3.3.2"],\
+            ["eslint", "npm:8.43.0"],\
+            ["eslint-plugin-react-hooks", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:4.6.0"],\
+            ["eslint-plugin-react-refresh", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:0.3.5"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:18.2.0"],\
+            ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"],\
+            ["vite", "virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:4.3.9"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["cyclist", [\
@@ -32414,6 +32454,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["vite", "virtual:391789c518a8c0642d0c6925d68078434837c712e723c1001808b9170e17203e9d138dc60d05d4b7cf76fe1c566019d24203e14deb717c666922f51fa7c1f079#npm:4.3.9"],\
             ["@types/less", null],\
             ["@types/node", "npm:20.3.2"],\
+            ["@types/sass", null],\
+            ["@types/stylus", null],\
+            ["@types/sugarss", null],\
+            ["@types/terser", null],\
+            ["esbuild", "npm:0.17.19"],\
+            ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
+            ["less", null],\
+            ["postcss", "npm:8.4.24"],\
+            ["rollup", "npm:3.25.3"],\
+            ["sass", null],\
+            ["stylus", null],\
+            ["sugarss", null],\
+            ["terser", null]\
+          ],\
+          "packagePeers": [\
+            "@types/less",\
+            "@types/node",\
+            "@types/sass",\
+            "@types/stylus",\
+            "@types/sugarss",\
+            "@types/terser",\
+            "less",\
+            "sass",\
+            "stylus",\
+            "sugarss",\
+            "terser"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:4.3.9", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-d871260a21/0/cache/vite-npm-4.3.9-24f3552941-8c45a51627.zip/node_modules/vite/",\
+          "packageDependencies": [\
+            ["vite", "virtual:8dc20f0a3a38a4c419359b05307a5e1e313d8f1217ccf87ce84105586d02c8ec61238d33d34ca4e64ec5727c95c760186bd3556461fbb4e7ec320229d78a33a7#npm:4.3.9"],\
+            ["@types/less", null],\
+            ["@types/node", null],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
             ["@types/sugarss", null],\

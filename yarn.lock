@@ -9944,6 +9944,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cv@workspace:products/CV":
+  version: 0.0.0-use.local
+  resolution: "cv@workspace:products/CV"
+  dependencies:
+    "@types/react": ^18.0.37
+    "@types/react-dom": ^18.0.11
+    "@typescript-eslint/eslint-plugin": ^5.59.0
+    "@typescript-eslint/parser": ^5.59.0
+    "@vitejs/plugin-react-swc": ^3.0.0
+    eslint: ^8.38.0
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-refresh: ^0.3.4
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    typescript: ^5.0.2
+    vite: ^4.3.9
+  languageName: unknown
+  linkType: soft
+
 "cyclist@npm:^1.0.1":
   version: 1.0.1
   resolution: "cyclist@npm:1.0.1"

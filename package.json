@@ -8,12 +8,14 @@
         "nm-packages/*"
     ],
     "scripts": {
+        "cv": "yarn workspace cv",
         "ma": "yarn workspace my-app",
         "na": "yarn workspace next-app",
         "nap": "yarn workspace next-app-pages",
         "utils": "yarn workspace @common/utils",
         "components": "yarn workspace @common/components",
-        "packages-build": "yarn workspaces foreach -ptR --from '{@common/utils,@common/components}' run build"
+        "packages-build": "yarn workspaces foreach -ptR --from '{@common/utils,@common/components}' run build",
+        "products-lint": "eslint ./"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.56.0",
