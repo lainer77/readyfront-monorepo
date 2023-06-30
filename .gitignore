@@ -146,3 +146,6 @@ cypress/log
 **/cypress/screenshots
 **/cypress/videos
 **/cypress/log
+
+# esbuild
+.esbuild

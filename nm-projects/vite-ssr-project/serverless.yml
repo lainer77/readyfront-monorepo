@@ -1,0 +1,34 @@
+service: vite-ssr
+frameworkVersion: '3'
+
+plugins:
+    - serverless-esbuild
+    - serverless-offline
+
+custom:
+    esbuild:
+        config: esbuild-config.cjs
+
+provider:
+    name: aws
+    region: ap-northeast-2
+    profile: serverless-admin
+    deploymentMethod: direct
+    runtime: nodejs18.x
+    memorySize: 512 # mb
+    timeout: 5 # seconds
+    versionFunctions: false
+
+package:
+    exclude:
+        - static/**
+
+functions:
+    vite-ssr:
+        handler: server/lambda.handler
+        environment:
+            NODE_ENV: production
+        package:
+            individually: true
+        events:
+            - httpApi: '*'
