@@ -6930,7 +6930,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.5.0, @typescript-eslint/eslint-plugin@npm:^5.56.0":
+"@typescript-eslint/eslint-plugin@npm:^5.5.0":
   version: 5.56.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.56.0"
   dependencies:
@@ -6989,7 +6989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.5.0, @typescript-eslint/parser@npm:^5.56.0":
+"@typescript-eslint/parser@npm:^5.5.0":
   version: 5.56.0
   resolution: "@typescript-eslint/parser@npm:5.56.0"
   dependencies:
@@ -16274,8 +16274,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "monorepo-boilerplate@workspace:."
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.56.0
-    "@typescript-eslint/parser": ^5.56.0
+    "@typescript-eslint/eslint-plugin": ^5.59.0
+    "@typescript-eslint/parser": ^5.59.0
     eslint: ^8.36.0
     eslint-config-prettier: ^8.8.0
     eslint-config-react-app: ^7.0.1
@@ -22405,9 +22405,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-ssr-project-3ea0af@workspace:products/vite-ssr-project":
+"vite-ssr-project@workspace:products/vite-ssr-project":
   version: 0.0.0-use.local
-  resolution: "vite-ssr-project-3ea0af@workspace:products/vite-ssr-project"
+  resolution: "vite-ssr-project@workspace:products/vite-ssr-project"
   dependencies:
     "@types/compression": ^1.7.2
     "@types/express": ^4.17.14
