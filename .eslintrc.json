@@ -15,7 +15,15 @@
             "version": "detect"
         }
     },
-    "ignorePatterns": ["build", "dist", "node_modules"],
+    "ignorePatterns": [
+        "build",
+        "dist",
+        "node_modules",
+        "package.json",
+        "tsconfig.json",
+        "tsconfig.node.json",
+        ".eslintrc.*"
+    ],
     "overrides": [
         {
             "files": ["**/*.ts?(x)", "**/*.js?(x)", "**/*.css", "**/*.html", "**/*.json"],
@@ -29,7 +37,7 @@
             "rules": {
                 // react import 생략 가능하도록
                 "react/react-in-jsx-scope": "off",
-                // perfectionist 와 충될되는 규칙
+                // perfectionist 와 충돌되는 규칙
                 "import/order": "off",
                 "sort-imports": "off",
                 //
