@@ -5,10 +5,14 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "prettier"
+        "prettier",
+        "perfectionist"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        // perfectionist 와 충돌되는 규칙
+        "import/order": "off",
+        "sort-imports": "off"
     },
     "settings": {
         "react": {
@@ -26,8 +30,7 @@
     ],
     "overrides": [
         {
-            "files": ["**/*.ts?(x)", "**/*.js?(x)", "**/*.css", "**/*.html", "**/*.json"],
-            "plugins": ["perfectionist"],
+            "files": ["**/*.ts?(x)", "**/*.js?(x)"],
             "extends": ["plugin:perfectionist/recommended-natural"],
             "parserOptions": {
                 "ecmaFeatures": {
@@ -37,14 +40,23 @@
             "rules": {
                 // react import 생략 가능하도록
                 "react/react-in-jsx-scope": "off",
-                // perfectionist 와 충돌되는 규칙
-                "import/order": "off",
-                "sort-imports": "off",
-                //
                 "perfectionist/sort-objects": [
                     "error",
                     {
                         "type": "natural",
+                        "order": "asc"
+                    }
+                ]
+            }
+        },
+        {
+            "files": ["**/*.css", "**/*.html", "**/*.json"],
+            "extends": ["plugin:perfectionist/recommended-line-length"],
+            "rules": {
+                "perfectionist/sort-objects": [
+                    "error",
+                    {
+                        "type": "line-length",
                         "order": "asc"
                     }
                 ]

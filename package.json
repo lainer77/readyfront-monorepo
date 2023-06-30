@@ -15,7 +15,7 @@
         "utils": "yarn workspace @common/utils",
         "components": "yarn workspace @common/components",
         "packages-build": "yarn workspaces foreach -ptR --from '{@common/utils,@common/components}' run build",
-        "lint": "eslint * --fix --ext ts,tsx,html,json --config ./.eslintrc.json"
+        "lint": "eslint * --fix"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.56.0",
