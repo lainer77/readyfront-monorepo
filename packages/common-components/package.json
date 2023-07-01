@@ -4,7 +4,8 @@
     "version": "0.0.0",
     "type": "module",
     "files": [
-        "dist"
+        "dist",
+        "dist.types"
     ],
     "main": "./dist/my-lib.umd.cjs",
     "module": "./dist/my-lib.js",
@@ -14,6 +15,7 @@
             "require": "./dist/my-lib.umd.cjs"
         }
     },
+    "typings": "./dist.types/main",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
