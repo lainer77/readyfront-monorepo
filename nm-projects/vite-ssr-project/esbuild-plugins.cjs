@@ -15,10 +15,10 @@ const nativeNodeModules = {
         // path from esbuild of the ".node" file in the output directory.
         build.onLoad({ filter: /.*/, namespace: 'node-file' }, (args) => ({
             contents: `
-        import path from ${JSON.stringify(args.path)}
-        try { module.exports = require(path) }
-        catch {}
-      `,
+                import path from ${JSON.stringify(args.path)}
+                try { module.exports = require(path) }
+                catch {}
+            `,
         }));
 
         // If a ".node" file is imported within a module in the "node-file" namespace, put
@@ -41,7 +41,7 @@ const copyPlugin = copy({
     assets: [
         {
             from: ['./dist/**/*'],
-            to: ['../../dist'],
+            to: ['../dist'],
         },
     ],
 });

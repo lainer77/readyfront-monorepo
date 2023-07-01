@@ -15,14 +15,14 @@ async function render(pageContext: PageContextClient) {
     if (root.innerHTML === '' || !pageContext.isHydration) {
         // - SPA pages don't have any hydration steps: they need to be fully rendered.
         // - Page navigation of SSR pages also need to be fully rendered (if we use Client Routing)
-        createRoot(root).render(
+        await createRoot(root).render(
             <PageShell pageContext={pageContext}>
                 <Page {...pageProps} />
             </PageShell>,
         );
     } else {
         // The first render of SSR pages is merely a hydration (instead of a full render)
-        hydrateRoot(
+        await hydrateRoot(
             root,
             <PageShell pageContext={pageContext}>
                 <Page {...pageProps} />
