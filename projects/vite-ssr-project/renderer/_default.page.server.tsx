@@ -1,6 +1,6 @@
 export { render };
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'urlPathname'];
+export const passToClient = ['pageProps', 'urlPathname', 'documentProps'];
 
 import ReactDOMServer from 'react-dom/server';
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
@@ -18,34 +18,21 @@ async function render(pageContext: PageContextServer) {
         // For SSR pages
         pageHtml = ReactDOMServer.renderToString(
             <PageShell pageContext={pageContext}>
-                <div id="react-root">
-                    <Page {...pageProps} />
-                </div>
+                <Page {...pageProps} />
             </PageShell>,
         );
     } else {
         // For SPA pages
-        pageHtml = ReactDOMServer.renderToString(
-            <PageShell pageContext={pageContext}>
-                <div id="react-root"></div>
-            </PageShell>,
-        );
+        pageHtml = '';
     }
 
     // See https://vite-plugin-ssr.com/head
     const { documentProps, getDocumentProps } = pageContext.exports;
 
-    const title =
-        // Conditional call in case a page doesn't define getDocumentProps()
-        getDocumentProps?.(pageProps).title ||
-        documentProps?.title ||
-        // Default for pages that don't define getDocumentProps()
-        'Vite SSR app';
+    const title = getDocumentProps?.(pageProps).title || documentProps?.title || 'Vite SSR app';
     const desc =
-        // Conditional call in case a page doesn't define getDocumentProps()
         getDocumentProps?.(pageProps).description ||
         documentProps?.description ||
-        // Default for pages that don't define getDocumentProps()
         'App using Vite + vite-plugin-ssr';
 
     const documentHtml = escapeInject`<!DOCTYPE html>
@@ -58,7 +45,7 @@ async function render(pageContext: PageContextServer) {
         <title>${title}</title>
       </head>
       <body>
-        ${dangerouslySkipEscape(pageHtml)}
+        <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
       </body>
     </html>`;
 
