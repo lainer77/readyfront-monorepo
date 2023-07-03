@@ -3682,7 +3682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@common/components@workspace:packages/common-components":
+"@common/components@workspace:^, @common/components@workspace:packages/common-components":
   version: 0.0.0-use.local
   resolution: "@common/components@workspace:packages/common-components"
   dependencies:
@@ -26396,6 +26396,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vite-ssr-project@workspace:nm-projects/vite-ssr-project"
   dependencies:
+    "@common/components": "workspace:^"
     "@types/express": ^4.17.14
     "@types/node": ^18.11.9
     "@types/react": ^18.0.8

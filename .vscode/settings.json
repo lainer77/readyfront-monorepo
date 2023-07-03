@@ -36,7 +36,8 @@
     // vscode 타입스크립트 활성화 (개인 설정 무효화용)
     "typescript.validate.enable": true,
     "files.watcherExclude": {
-        "**/.fttemplates/**": true
+        "**/.fttemplates/**": true,
+        "**/node_modules/**": true
     },
     "[markdown]": {
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
