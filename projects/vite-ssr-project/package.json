@@ -1,5 +1,6 @@
 {
     "name": "vite-ssr-project",
+    "packageManager": "yarn@3.6.0",
     "scripts": {
         "dev": "yarn server",
         "prod": "yarn lint && yarn build && yarn server:prod",

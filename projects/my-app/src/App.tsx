@@ -1,3 +1,4 @@
+import { Counter } from '@common/components';
 import { testLog } from '@common/utils';
 
 import './App.css';
@@ -21,6 +22,7 @@ function App() {
                     Learn React
                 </a>
             </header>
+            <Counter />
         </div>
     );
 }

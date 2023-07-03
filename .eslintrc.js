@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    plugins: ['react', 'prettier', 'perfectionist', 'html'],
+    plugins: ['prettier', 'perfectionist', 'html'],
     extends: ['eslint:recommended', 'prettier'],
     rules: {
         'prettier/prettier': 'error',
@@ -24,10 +24,16 @@ module.exports = {
         // 하위 종속성 eslint 버전차이로 임시 제외
         'vite-ssr-project',
     ],
+    parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+        extraFileExtensions: ['.json'],
+        resolvePluginsRelativeTo: __dirname, // 중요
+    },
     overrides: [
         {
             files: ['**/*.ts?(x)', '**/*.js?(x)'],
-            plugins: ['@typescript-eslint'],
+            plugins: ['react', '@typescript-eslint'],
             settings: {
                 react: {
                     version: 'detect',
@@ -40,15 +46,9 @@ module.exports = {
              * "parserOptions.resolvePluginsRelativeTo": __dirname - ESLint 플러그인을 찾을 디렉토리의 경로를 지정합니다. 이 설정은 플러그인이 루트 디렉토리의 node_modules에 설치되어 있지 않을 때 필요합니다.
              */
             parser: '@typescript-eslint/parser',
-            parserOptions: {
-                project: './tsconfig.json',
-                tsconfigRootDir: __dirname,
-                extraFileExtensions: ['.json'],
-                resolvePluginsRelativeTo: __dirname, // 중요
-            },
             extends: [
                 'plugin:@typescript-eslint/recommended',
-                'plugin:react/recommended',
+                // 'plugin:react/recommended',
                 'plugin:perfectionist/recommended-natural',
             ],
             parserOptions: {

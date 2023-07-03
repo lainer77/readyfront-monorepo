@@ -11,6 +11,15 @@ export default defineConfig({
             fileName: 'my-lib',
             name: 'MyLib',
         },
+        rollupOptions: {
+            external: ['react', 'react-dom'], // 외부 종속성으로 설정
+            output: {
+                globals: {
+                    react: 'React', // 전역 변수에 연결할 이름을 설정 (ex: 'React'는 window.React에 매핑됨)
+                    'react-dom': 'ReactDOM',
+                },
+            },
+        },
     },
     plugins: [react()],
 });

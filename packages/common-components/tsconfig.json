@@ -12,8 +12,16 @@
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "noEmit": true,
         "jsx": "react-jsx",
+
+        /* Bundler @types delaration */
+        // "noEmit": true,
+        "noEmit": false,
+        "emitDeclarationOnly": true,
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "./dist.types",
+        "outDir": "dist",
 
         /* Linting */
         "strict": true,

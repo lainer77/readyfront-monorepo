@@ -3,6 +3,14 @@ import { UserConfig } from 'vite';
 import ssr from 'vite-plugin-ssr/plugin';
 
 const config: UserConfig = {
+    build: {
+        commonjsOptions: {
+            include: [/@common\/components/, /node_modules/],
+        },
+    },
+    optimizeDeps: {
+        include: ['@common/components'],
+    },
     plugins: [react(), ssr()],
 };
 
