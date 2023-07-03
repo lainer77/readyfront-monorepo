@@ -24,6 +24,10 @@ export type PageContextCustom = {
             description?: string;
             title?: string;
         };
+        getDocumentProps?: (pageProps?: PageProps) => {
+            description?: string;
+            title?: string;
+        };
     };
     pageProps?: PageProps;
     urlPathname: string;

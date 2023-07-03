@@ -1,6 +1,6 @@
 import './code.css';
 
-export { Page };
+export { Page, documentProps };
 
 function Page() {
     return (
@@ -12,3 +12,8 @@ function Page() {
         </>
     );
 }
+
+const documentProps = {
+    description: 'vite-plugin-ssr',
+    title: 'About',
+};

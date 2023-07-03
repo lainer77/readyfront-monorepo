@@ -28,6 +28,9 @@ function PageShell({
                         <Link className="navitem" href="/about">
                             About
                         </Link>
+                        <Link className="navitem" href="/my">
+                            My
+                        </Link>
                     </Sidebar>
                     <Content>{children}</Content>
                 </Layout>

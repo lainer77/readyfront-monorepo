@@ -1,10 +1,11 @@
 // Note that this file isn't processed by Vite, see https://github.com/brillout/vite-plugin-ssr/issues/562
 
 import express from 'express';
-import { renderPage } from 'vite-plugin-ssr/server';
-import { root } from './root.js';
 import process from 'process';
 import UAParser from 'ua-parser-js';
+import { renderPage } from 'vite-plugin-ssr/server';
+
+import { root } from './root.js';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -28,13 +29,13 @@ app.get('*', async (req, res, next) => {
     const userAgent = new UAParser(req.headers['user-agent']);
     const deviceType = userAgent.getDevice().type || 'desktop';
     const pageContextInit = {
-        urlOriginal: req.originalUrl,
         deviceType,
+        urlOriginal: req.originalUrl,
     };
     const pageContext = await renderPage(pageContextInit);
     const { httpResponse } = pageContext;
     if (!httpResponse) return next();
-    const { body, statusCode, contentType } = httpResponse;
+    const { body, contentType, statusCode } = httpResponse;
     res.status(statusCode).type(contentType).send(body);
 });
 

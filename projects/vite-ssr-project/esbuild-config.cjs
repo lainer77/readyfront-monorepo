@@ -2,7 +2,7 @@ const esbuildPlugins = require('./esbuild-plugins.cjs');
 
 module.exports = () => {
     return {
-        packager: 'pnp',
+        packager: 'pnpm',
         platform: 'node',
         format: 'esm',
         outputFileExtension: '.mjs', // https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html

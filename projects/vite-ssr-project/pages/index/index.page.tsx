@@ -16,3 +16,8 @@ function Page() {
         </>
     );
 }
+
+export const documentProps = {
+    description: 'Welcome',
+    title: 'Home',
+};

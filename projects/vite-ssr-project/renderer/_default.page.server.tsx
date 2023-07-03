@@ -18,18 +18,35 @@ async function render(pageContext: PageContextServer) {
         // For SSR pages
         pageHtml = ReactDOMServer.renderToString(
             <PageShell pageContext={pageContext}>
-                <Page {...pageProps} />
+                <div id="react-root">
+                    <Page {...pageProps} />
+                </div>
             </PageShell>,
         );
     } else {
         // For SPA pages
-        pageHtml = '';
+        pageHtml = ReactDOMServer.renderToString(
+            <PageShell pageContext={pageContext}>
+                <div id="react-root"></div>
+            </PageShell>,
+        );
     }
 
     // See https://vite-plugin-ssr.com/head
-    const { documentProps } = pageContext.exports;
-    const title = (documentProps && documentProps.title) || 'Vite SSR app';
-    const desc = (documentProps && documentProps.description) || 'App using Vite + vite-plugin-ssr';
+    const { documentProps, getDocumentProps } = pageContext.exports;
+
+    const title =
+        // Conditional call in case a page doesn't define getDocumentProps()
+        getDocumentProps?.(pageProps).title ||
+        documentProps?.title ||
+        // Default for pages that don't define getDocumentProps()
+        'Vite SSR app';
+    const desc =
+        // Conditional call in case a page doesn't define getDocumentProps()
+        getDocumentProps?.(pageProps).description ||
+        documentProps?.description ||
+        // Default for pages that don't define getDocumentProps()
+        'App using Vite + vite-plugin-ssr';
 
     const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="ko">
@@ -41,7 +58,7 @@ async function render(pageContext: PageContextServer) {
         <title>${title}</title>
       </head>
       <body>
-        <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
+        ${dangerouslySkipEscape(pageHtml)}
       </body>
     </html>`;
 

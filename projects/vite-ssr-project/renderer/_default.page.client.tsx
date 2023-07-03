@@ -1,10 +1,9 @@
 export { render };
 
-import { hydrateRoot, createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import type { PageContextClient } from './types';
-
-import { PageShell } from './PageShell';
 
 // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
 async function render(pageContext: PageContextClient) {
@@ -12,22 +11,19 @@ async function render(pageContext: PageContextClient) {
     if (!Page) throw new Error('Client-side render() hook expects pageContext.Page to be defined');
     const root = document.getElementById('react-root');
     if (!root) throw new Error('DOM element #react-root not found');
+
+    const pageRender = (
+        <BrowserRouter>
+            <Page {...pageProps} />
+        </BrowserRouter>
+    );
     if (root.innerHTML === '' || !pageContext.isHydration) {
         // - SPA pages don't have any hydration steps: they need to be fully rendered.
         // - Page navigation of SSR pages also need to be fully rendered (if we use Client Routing)
-        await createRoot(root).render(
-            <PageShell pageContext={pageContext}>
-                <Page {...pageProps} />
-            </PageShell>,
-        );
+        await createRoot(root).render(pageRender);
     } else {
         // The first render of SSR pages is merely a hydration (instead of a full render)
-        await hydrateRoot(
-            root,
-            <PageShell pageContext={pageContext}>
-                <Page {...pageProps} />
-            </PageShell>,
-        );
+        await hydrateRoot(root, pageRender);
     }
 }
 

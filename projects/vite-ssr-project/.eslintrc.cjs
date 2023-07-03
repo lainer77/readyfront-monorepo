@@ -16,6 +16,7 @@ module.exports = {
     ],
     parser: '@typescript-eslint/parser',
     rules: {
-        'react-refresh/only-export-components': 'warn',
+        'react-refresh/only-export-components': 'off',
+        '@typescript-eslint/no-var-requires': 0,
     },
 };
