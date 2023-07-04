@@ -19,6 +19,9 @@ provider:
     timeout: 5 # seconds
     versionFunctions: false
 
+package:
+    individually: true
+
 functions:
     vite-ssr:
         handler: server/lambda.handler
