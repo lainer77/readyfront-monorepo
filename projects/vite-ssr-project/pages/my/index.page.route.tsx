@@ -6,7 +6,6 @@ export default (pageContext: PageContext) => {
         '/my',
         pageContext.urlPathname.match(/\/my/) ? '/my' : pageContext.urlPathname,
     );
-    if (pageContext.urlPathname.match(/\/my/)) return result;
 
     return result;
 };

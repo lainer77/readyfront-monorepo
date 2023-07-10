@@ -23,7 +23,9 @@ async function render(pageContext: PageContextServer) {
         );
     } else {
         // For SPA pages
-        pageHtml = '';
+        pageHtml = ReactDOMServer.renderToString(
+            <PageShell pageContext={pageContext}>{null}</PageShell>,
+        );
     }
 
     // See https://vite-plugin-ssr.com/head
