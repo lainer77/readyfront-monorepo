@@ -66,6 +66,7 @@ module.exports = {
                     {
                         type: 'natural',
                         order: 'asc',
+                        'always-on-top': ['src', 'key', 'className'],
                     },
                 ],
             },
@@ -79,6 +80,7 @@ module.exports = {
                     {
                         type: 'line-length',
                         order: 'asc',
+                        'always-on-top': ['src', 'key', 'className'],
                     },
                 ],
             },

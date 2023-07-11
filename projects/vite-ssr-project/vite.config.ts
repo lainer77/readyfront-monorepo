@@ -12,6 +12,12 @@ const config: UserConfig = {
         include: ['@common/components'],
     },
     plugins: [react(), ssr()],
+    resolve: {
+        alias: {
+            components: './renderer/components',
+            resources: './renderer/resources',
+        },
+    },
 };
 
 export default config;

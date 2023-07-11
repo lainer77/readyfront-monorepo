@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type { PageContext } from './types';
+import type { PageContext } from '../../types';
 
-import { Link } from './Link';
+import { PageContextProvider } from '../../usePageContext';
+import { Link } from '../Link';
+import { Profile } from '../Profile';
 import './PageShell.css';
-import logo from './logo.svg';
-import { PageContextProvider } from './usePageContext';
 
 export { PageShell };
 
@@ -22,10 +22,7 @@ function PageShell({
                 <Layout>
                     <Sidebar>
                         <Logo />
-                        <Link className="navitem" href="/">
-                            Home
-                        </Link>
-                        <Link className="navitem" href="/about">
+                        <Link className="navitem" href="#about">
                             About
                         </Link>
                         <Link className="navitem" href="/my">
@@ -93,9 +90,7 @@ function Logo() {
                 marginTop: 20,
             }}
         >
-            <a href="/">
-                <img alt="logo" height={64} src={logo} width={64} />
-            </a>
+            <Profile />
         </div>
     );
 }

@@ -1,7 +1,10 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": { "react": ["./node_modules/react"], "react-dom": ["./node_modules/react-dom"] },
+        "paths": {
+            "react": ["./node_modules/react"],
+            "react-dom": ["./node_modules/react-dom"]
+        },
         "strict": true,
         "module": "es2022",
         "target": "ES2020",

@@ -7,7 +7,7 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
 
 import type { PageContextServer } from './types';
 
-import { PageShell } from './PageShell';
+import { PageShell } from './components/PageShell';
 import logoUrl from './logo.svg';
 
 async function render(pageContext: PageContextServer) {
@@ -23,9 +23,7 @@ async function render(pageContext: PageContextServer) {
         );
     } else {
         // For SPA pages
-        pageHtml = ReactDOMServer.renderToString(
-            <PageShell pageContext={pageContext}>{null}</PageShell>,
-        );
+        pageHtml = '';
     }
 
     // See https://vite-plugin-ssr.com/head

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import type { PageContextClient } from './types';
 
-import { PageShell } from './PageShell';
+import { PageShell } from './components/PageShell';
 
 // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
 async function render(pageContext: PageContextClient) {
@@ -15,11 +15,11 @@ async function render(pageContext: PageContextClient) {
     if (!root) throw new Error('DOM element #react-root not found');
 
     const pageRender = (
-        <BrowserRouter>
-            <PageShell pageContext={pageContext}>
+        <PageShell pageContext={pageContext}>
+            <BrowserRouter>
                 <Page {...pageProps} />
-            </PageShell>
-        </BrowserRouter>
+            </BrowserRouter>
+        </PageShell>
     );
     if (root.innerHTML === '' || !pageContext.isHydration) {
         // - SPA pages don't have any hydration steps: they need to be fully rendered.
