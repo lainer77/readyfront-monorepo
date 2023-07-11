@@ -5,7 +5,7 @@ export { Page };
 function Page() {
     return (
         <>
-            <h1>Welcome</h1>
+            <h1>김대한</h1>
             This page is:
             <ul>
                 <li>Rendered to HTML.</li>
@@ -18,6 +18,6 @@ function Page() {
 }
 
 export const documentProps = {
-    description: 'Welcome',
-    title: 'Home',
+    description: '언제나 준비된 개발자가되기 위해',
+    title: '김대한의 CV',
 };
