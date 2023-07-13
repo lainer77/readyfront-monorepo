@@ -15,7 +15,7 @@
             "require": "./dist/my-lib.umd.cjs"
         }
     },
-    "typings": "./dist.types/main",
+    "typings": "./dist.types/index",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",

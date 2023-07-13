@@ -16,6 +16,7 @@
 
         /* Bundler @types delaration */
         // "noEmit": true,
+        "typeRoots": ["./dist.types", "./node_modules/dist.types"],
         "noEmit": false,
         "emitDeclarationOnly": true,
         "declaration": true,

@@ -14,8 +14,8 @@ const config: UserConfig = {
     plugins: [react(), ssr()],
     resolve: {
         alias: {
-            components: './renderer/components',
-            resources: './renderer/resources',
+            components: '/renderer/components',
+            resources: '/renderer/resources',
         },
     },
 };

@@ -22,11 +22,11 @@ function PageShell({
                 <Layout>
                     <Sidebar>
                         <Logo />
-                        <Link className="navitem" href="#about">
-                            About
-                        </Link>
                         <Link className="navitem" href="/my">
                             My
+                        </Link>
+                        <Link className="navitem" href="/lab">
+                            Lab
                         </Link>
                     </Sidebar>
                     <Content>{children}</Content>
