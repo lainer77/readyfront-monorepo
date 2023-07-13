@@ -47,7 +47,6 @@ function Layout({ children }: { children: React.ReactNode }) {
             style={{
                 display: 'flex',
                 margin: 'auto',
-                maxWidth: 900,
             }}
         >
             {children}
