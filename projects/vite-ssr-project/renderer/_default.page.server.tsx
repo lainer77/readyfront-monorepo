@@ -8,7 +8,7 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
 import type { PageContextServer } from './types';
 
 import { PageShell } from './components/PageShell';
-import logoUrl from './logo.svg';
+import logoUrl from './resources/svg/logo.svg';
 
 async function render(pageContext: PageContextServer) {
     const { Page, pageProps } = pageContext;
