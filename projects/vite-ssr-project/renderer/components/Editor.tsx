@@ -15,7 +15,6 @@ export function Editor({
     const [code, setCode] = useState(defaultCode);
     useEffect(() => {
         const func = () => {
-            console.log(prettier);
             const text = prettier?.format(defaultCode, {
                 parser: 'babel',
                 plugins: [parserBabel],
@@ -25,7 +24,6 @@ export function Editor({
                 tabWidth: 4,
                 trailingComma: 'all',
             });
-            console.log(text);
             if (text) setCode(text);
         };
         func();
