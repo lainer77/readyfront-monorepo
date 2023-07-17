@@ -1,7 +1,6 @@
-import prettier from 'prettier';
-import parserBabel from 'prettier/parser-babel';
-import { useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+
+import { usePrettierFormat } from '../../renderer/hooks/usePrettierFormat';
 
 export function Editor({
     defaultCode,
@@ -12,22 +11,7 @@ export function Editor({
     noInline?: boolean;
     scope?: Record<string, unknown>;
 }) {
-    const [code, setCode] = useState(defaultCode);
-    useEffect(() => {
-        const func = () => {
-            const text = prettier?.format(defaultCode, {
-                parser: 'babel',
-                plugins: [parserBabel],
-                printWidth: 100,
-                semi: true,
-                singleQuote: true,
-                tabWidth: 4,
-                trailingComma: 'all',
-            });
-            if (text) setCode(text);
-        };
-        func();
-    }, [defaultCode]);
+    const code = usePrettierFormat(defaultCode);
 
     return (
         <LiveProvider code={code} noInline={noInline} scope={scope}>

@@ -1,7 +1,7 @@
-import prettier from 'prettier';
-import parserBabel from 'prettier/parser-babel';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+
+import { usePrettierFormat } from '../../renderer/hooks/usePrettierFormat';
 
 export function EditComponent({
     defaultCode,
@@ -12,23 +12,8 @@ export function EditComponent({
     noInline?: boolean;
     scope?: Record<string, unknown>;
 }) {
-    const [code, setCode] = useState(defaultCode);
+    const code = usePrettierFormat(defaultCode);
     const [mode, setMode] = useState<'edit' | 'show'>('show');
-    useEffect(() => {
-        const func = () => {
-            const text = prettier?.format(defaultCode, {
-                parser: 'babel',
-                plugins: [parserBabel],
-                printWidth: 100,
-                semi: true,
-                singleQuote: true,
-                tabWidth: 4,
-                trailingComma: 'all',
-            });
-            if (text) setCode(text);
-        };
-        func();
-    }, [defaultCode]);
 
     return (
         <LiveProvider code={code} noInline={noInline} scope={scope}>
@@ -40,8 +25,8 @@ export function EditComponent({
                 >
                     수정
                 </button>
-                {mode === 'edit' && <LiveEditor />}
-                {mode === 'show' && <LivePreview />}
+                <LiveEditor style={{ display: mode === 'edit' ? 'block' : 'none' }} />
+                <LivePreview style={{ display: mode === 'show' ? 'block' : 'none' }} />
                 <LiveError
                     style={{
                         backgroundColor: '#FED7D7', // Red-100

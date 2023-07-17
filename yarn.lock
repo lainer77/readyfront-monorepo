@@ -7605,6 +7605,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/babel__standalone@npm:^7":
+  version: 7.1.4
+  resolution: "@types/babel__standalone@npm:7.1.4"
+  dependencies:
+    "@babel/core": ^7.1.0
+  checksum: d6092c85899c9306ff205ec0f839405f14d4b76fd99855952a41043b5327e6fea91d3b0d8bdf8615eb641ee81f3dccc68c7cec19da7c5a0e594b60a020ac41fc
+  languageName: node
+  linkType: hard
+
 "@types/babel__template@npm:*":
   version: 7.4.1
   resolution: "@types/babel__template@npm:7.4.1"
@@ -25972,6 +25981,7 @@ __metadata:
     "@common/components": "workspace:^"
     "@common/utils": "workspace:^"
     "@react-oauth/google": latest
+    "@types/babel__standalone": ^7
     "@types/cors": ^2
     "@types/express": ^4.17.14
     "@types/node": ^18.11.9

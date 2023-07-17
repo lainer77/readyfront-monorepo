@@ -108,41 +108,41 @@ function Content({ children }: { children: React.ReactNode }) {
     }, []);
 
     return (
-        <>
-            <section
+        <section
+            style={{
+                borderLeft: '2px solid #eee',
+                minHeight: '100vh',
+                overflow: 'scroll',
+                width: '100%',
+            }}
+        >
+            <header
                 style={{
-                    borderLeft: '2px solid #eee',
-                    minHeight: '100vh',
+                    alignItems: 'center',
+                    background: '#fff',
+                    borderBottom: '0.2rem solid #eee',
+                    display: 'flex',
+                    height: '5rem',
+                    justifyContent: 'space-between',
+                    paddingLeft: '1rem',
+                    paddingRight: '1rem',
+                    position: 'sticky',
+                    top: 0,
                     width: '100%',
                 }}
             >
-                <header
-                    style={{
-                        alignItems: 'center',
-                        borderBottom: '0.2rem solid #eee',
-                        display: 'flex',
-                        height: '5rem',
-                        justifyContent: 'space-between',
-                        paddingLeft: '1rem',
-                        paddingRight: '1rem',
-                        position: 'sticky',
-                        top: 0,
-                        width: '100%',
-                    }}
-                >
-                    <h1>{title}</h1>
-                    <GoogleLoginButton />
-                </header>
-                <section
-                    style={{
-                        padding: 20,
-                        paddingBottom: 50,
-                    }}
-                >
-                    {children}
-                </section>
+                <h1>{title}</h1>
+                <GoogleLoginButton />
+            </header>
+            <section
+                style={{
+                    padding: 20,
+                    paddingBottom: 50,
+                }}
+            >
+                {children}
             </section>
-        </>
+        </section>
     );
 }
 

@@ -4,6 +4,28 @@ import { EditComponent } from '../../renderer/components/EditComponent';
 import { Editor } from '../../renderer/components/Editor';
 
 export { Page };
+const defaultCode = `
+type Props = {
+    label: string,
+};
+const Counter = (props: Props) => {
+    const [count, setCount] = React.useState<number>(0);
+    return (
+        <div>
+            <h3
+                style={{
+                    background: 'darkslateblue',
+                    color: 'white',
+                    padding: 8,
+                    borderRadius: 4,
+                }}>
+                {props.label}: {count} 🧮
+            </h3>
+            <button onClick={() => setCount((c) => c + 1)}>Increment</button>
+        </div>
+    );
+};
+render(<Counter label='Counter' />);`;
 
 function Page() {
     return (
@@ -20,39 +42,19 @@ function Page() {
             </h1>
             <h3>에디터 테스트</h3>
             <Editor
-                defaultCode="
-                () => {
-                    const [likes, increaseLikes] = React.useState(0);
-                  
-                    return (
-                      <>
-                        <p>{`${likes} likes`}</p>
-                        <button onClick={() => increaseLikes(likes + 1)}>Like</button>
-                      </>
-                    );
-                  };"
                 scope={{
                     headerProps: { text: 'test' },
                 }}
-                noInline={false}
+                defaultCode={defaultCode}
+                noInline={!defaultCode.match(/rednder\(/)}
             />
             <h3>수정 가능 컴포넌트 테스트</h3>
             <EditComponent
-                defaultCode="
-                () => {
-                    const [likes, increaseLikes] = React.useState(0);
-                  
-                    return (
-                      <>
-                        <p>{`${likes} likes`}</p>
-                        <button onClick={() => increaseLikes(likes + 1)}>Like</button>
-                      </>
-                    );
-                  };"
                 scope={{
                     headerProps: { text: 'test' },
                 }}
-                noInline={false}
+                defaultCode={defaultCode}
+                noInline={!defaultCode.match(/rednder\(/)}
             />
         </>
     );

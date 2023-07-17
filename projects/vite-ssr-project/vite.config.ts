@@ -15,6 +15,7 @@ const config: UserConfig = {
     resolve: {
         alias: {
             components: '/renderer/components',
+            hooks: '/renderer/hooks',
             resources: '/renderer/resources',
         },
     },
