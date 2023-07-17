@@ -7,6 +7,7 @@ import type { PageContext } from '../../types';
 import cvUrl from '../../resources/svg/CV.svg';
 import githubUrl from '../../resources/svg/github.svg';
 import { PageContextProvider } from '../../usePageContext';
+import { GlobalStyle } from '../GlobalStyle';
 import GoogleLoginButton from '../GoogleLoginButton';
 import { Link } from '../Link';
 import { Profile } from '../Profile';
@@ -24,6 +25,8 @@ function PageShell({
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     return (
         <React.StrictMode>
+            <GlobalStyle />
+
             <GoogleOAuthProvider clientId={clientId}>
                 <PageContextProvider pageContext={pageContext}>
                     <Layout>

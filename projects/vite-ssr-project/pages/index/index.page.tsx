@@ -5,8 +5,7 @@ export { Page };
 function Page() {
     return (
         <>
-            <h1>김대한</h1>
-            This page is:
+            <h1>안녕하세요. 좋은 경험을 추구하는 김대한입니다.</h1>
             <ul>
                 <li>Rendered to HTML.</li>
                 <li>

@@ -9,7 +9,7 @@ const config: UserConfig = {
         },
     },
     optimizeDeps: {
-        include: ['@common/components'],
+        include: ['@common/components', 'shallowequal', ''],
     },
     plugins: [react(), ssr()],
     resolve: {
@@ -17,6 +17,12 @@ const config: UserConfig = {
             components: '/renderer/components',
             hooks: '/renderer/hooks',
             resources: '/renderer/resources',
+        },
+    },
+    ssr: {
+        noExternal: ['styled-components'],
+        optimizeDeps: {
+            include: ['styled-components'],
         },
     },
 };

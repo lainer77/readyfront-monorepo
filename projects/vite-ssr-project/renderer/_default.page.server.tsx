@@ -3,23 +3,31 @@ export { render };
 export const passToClient = ['pageProps', 'urlPathname', 'documentProps'];
 
 import ReactDOMServer from 'react-dom/server';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
 
 import type { PageContextServer } from './types';
 
+import { GlobalStyle } from './components/GlobalStyle';
 import { PageShell } from './components/PageShell';
 import logoUrl from './resources/svg/logo.svg';
+
+const sheet = new ServerStyleSheet();
 
 async function render(pageContext: PageContextServer) {
     const { Page, pageProps } = pageContext;
 
+    // Step 3: Extract the styles as <style> tags
     let pageHtml;
     if (Page) {
         // For SSR pages
         pageHtml = ReactDOMServer.renderToString(
-            <PageShell pageContext={pageContext}>
-                <Page {...pageProps} />
-            </PageShell>,
+            <StyleSheetManager sheet={sheet.instance}>
+                <GlobalStyle />
+                <PageShell pageContext={pageContext}>
+                    <Page {...pageProps} />
+                </PageShell>
+            </StyleSheetManager>,
         );
     } else {
         // For SPA pages
