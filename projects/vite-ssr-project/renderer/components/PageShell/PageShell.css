@@ -21,3 +21,6 @@ a {
 .navitem.is-active {
     background-color: #eee;
 }
+ul {
+    padding-inline-start: 2.5rem;
+}

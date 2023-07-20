@@ -1,20 +1,25 @@
 import { useState } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 
 import { usePrettierFormat } from '../../renderer/hooks/usePrettierFormat';
 
 export function EditComponent({
-    defaultCode,
+    children,
+    defaultCode = '',
     noInline = true,
     scope,
 }: {
-    defaultCode: string;
+    children?: JSX.Element;
+    defaultCode?: string;
     noInline?: boolean;
     scope?: Record<string, unknown>;
 }) {
-    const code = usePrettierFormat(defaultCode);
+    let childrenText = children && ReactDOMServer.renderToString(children);
+    if (children && noInline && !childrenText?.match(/render\(/))
+        childrenText = `render(${childrenText})`;
+    const code = usePrettierFormat(childrenText || defaultCode);
     const [mode, setMode] = useState<'edit' | 'show'>('show');
-
     return (
         <LiveProvider code={code} noInline={noInline} scope={scope}>
             <div style={{ position: 'relative' }}>
