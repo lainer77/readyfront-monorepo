@@ -1,0 +1,19 @@
+.cv-content {
+    & hr {
+        margin: 7rem 0;
+    }
+    & h4 {
+        margin-bottom: 0.5rem;
+    }
+    & ul {
+        > li {
+            margin-bottom: 0.5rem;
+            line-height: 2rem;
+            .description {
+                font-size: 1.2rem;
+                margin: 0;
+                color: gray;
+            }
+        }
+    }
+}

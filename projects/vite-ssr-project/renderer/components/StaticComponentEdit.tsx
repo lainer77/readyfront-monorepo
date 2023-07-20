@@ -18,6 +18,7 @@ export function StaticComponentEdit({
     let childrenText = children && ReactDOMServer.renderToString(children);
     if (children && noInline && !childrenText?.match(/render\(/))
         childrenText = `render(${childrenText})`;
+    childrenText = childrenText?.replace(/class=/g, 'className=');
     const code = usePrettierFormat(childrenText || defaultCode);
     const [mode, setMode] = useState<'edit' | 'show'>('show');
     return (

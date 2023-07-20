@@ -1,7 +1,7 @@
 import { IoIosFlask } from 'react-icons/Io';
 
-import { EditComponent } from '../../renderer/components/StaticComponentEdit';
 import { Editor } from '../../renderer/components/Editor';
+import { StaticComponentEdit } from '../../renderer/components/StaticComponentEdit';
 
 export { Page };
 const defaultCode = `
@@ -49,7 +49,7 @@ function Page() {
                 noInline={!defaultCode.match(/rednder\(/)}
             />
             <h3>수정 가능 컴포넌트 테스트</h3>
-            <EditComponent
+            <StaticComponentEdit
                 scope={{
                     headerProps: { text: 'test' },
                 }}
