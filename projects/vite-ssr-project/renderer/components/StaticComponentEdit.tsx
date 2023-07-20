@@ -2,9 +2,9 @@ import { useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 
-import { usePrettierFormat } from '../../renderer/hooks/usePrettierFormat';
+import { usePrettierFormat } from '../hooks/usePrettierFormat';
 
-export function EditComponent({
+export function StaticComponentEdit({
     children,
     defaultCode = '',
     noInline = true,

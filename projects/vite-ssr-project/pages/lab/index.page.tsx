@@ -1,6 +1,6 @@
 import { IoIosFlask } from 'react-icons/Io';
 
-import { EditComponent } from '../../renderer/components/EditComponent';
+import { EditComponent } from '../../renderer/components/StaticComponentEdit';
 import { Editor } from '../../renderer/components/Editor';
 
 export { Page };
