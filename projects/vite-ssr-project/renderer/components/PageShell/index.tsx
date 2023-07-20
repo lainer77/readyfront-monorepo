@@ -45,7 +45,6 @@ function PageShell({
                             <Link className="navitem" href="/issue">
                                 Issue
                             </Link>
-                            <GithubLinkLogo />
                         </Sidebar>
                         <Content>{children}</Content>
                     </Layout>
@@ -56,47 +55,29 @@ function PageShell({
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-    return (
-        <div
-            style={{
-                display: 'flex',
-                margin: 'auto',
-            }}
-        >
-            {children}
-        </div>
-    );
+    return <div className="layout-container">{children}</div>;
 }
 
 function Sidebar({ children }: { children: React.ReactNode }) {
     const [isShowing, setIsShowing] = useState(true);
     if (!isShowing)
         return (
-            <div
-                style={{
-                    alignSelf: 'flex-end',
-                    bottom: '1rem',
-                    left: '1rem',
-                    position: 'fixed',
-                    zIndex: 1,
-                }}
-                onClick={() => setIsShowing((s) => !s)}
-            >
+            <div className="sidebar-disabled" onClick={() => setIsShowing((s) => !s)}>
                 <VscChevronRight fontSize="2rem" />
             </div>
         );
     return (
         <section
             style={{
-                alignItems: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                flexShrink: 0,
-                lineHeight: '1.8em',
                 padding: `1rem ${isShowing ? 1 : 0.5}rem`,
             }}
+            className="sidebar"
         >
             {children}
+            <div className="sidebar-botton ">
+                <GithubLinkLogo />
+                <GoogleLoginButton />
+            </div>
             <div onClick={() => setIsShowing((s) => !s)} style={{ alignSelf: 'flex-end' }}>
                 <VscChevronLeft fontSize="2rem" />
             </div>
@@ -111,31 +92,9 @@ function Content({ children }: { children: React.ReactNode }) {
     }, []);
 
     return (
-        <section
-            style={{
-                borderLeft: '2px solid #eee',
-                minHeight: '100vh',
-                overflow: 'scroll',
-                width: '100%',
-            }}
-        >
-            <header
-                style={{
-                    alignItems: 'center',
-                    background: '#fff',
-                    borderBottom: '0.2rem solid #eee',
-                    display: 'flex',
-                    height: '5rem',
-                    justifyContent: 'space-between',
-                    paddingLeft: '1rem',
-                    paddingRight: '1rem',
-                    position: 'sticky',
-                    top: 0,
-                    width: '100%',
-                }}
-            >
+        <section className="content-container">
+            <header>
                 <h1>{title}</h1>
-                <GoogleLoginButton />
             </header>
             <section
                 style={{
@@ -163,12 +122,7 @@ function Logo() {
 
 function GithubLinkLogo() {
     return (
-        <a
-            style={{
-                marginTop: 'auto',
-            }}
-            href="https://github.com/lainer77"
-        >
+        <a href="https://github.com/lainer77">
             <img alt="cv" height={30} src={githubUrl} width={30} />
         </a>
     );

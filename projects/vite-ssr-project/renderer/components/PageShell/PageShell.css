@@ -24,3 +24,52 @@ a {
 ul {
     padding-inline-start: 2.5rem;
 }
+
+.layout-container {
+    display: flex;
+    margin: auto;
+}
+
+.sidebar-disabled {
+    align-self: flex-end;
+    bottom: 1rem;
+    left: 1rem;
+    position: fixed;
+    z-index: 1;
+}
+.sidebar {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    line-height: 1.8em;
+    max-height: 100vh;
+}
+.sidebar-botton {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    margin-top: auto;
+}
+
+.content-container {
+    border-left: 2px solid #eee;
+    min-height: 100vh;
+    overflow: scroll;
+    width: 100%;
+    > header {
+        align-items: center;
+        background: #fff;
+        border-bottom: 0.2rem solid #eee;
+        display: flex;
+        height: 5rem;
+        justify-content: space-between;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        position: sticky;
+        top: 0;
+        width: 100%;
+    }
+}
