@@ -51,6 +51,21 @@ async function render(pageContext: PageContextServer) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
+        <script src="https://giscus.app/client.js"
+            data-repo="lainer77/readyfront-monorepo"
+            data-repo-id="R_kgDOJ1cAlQ"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOJ1cAlc4CYCUD"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="ko"
+            crossorigin="anonymous"
+            async>
+        </script>
       </head>
       <body>
         <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
