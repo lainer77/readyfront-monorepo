@@ -9,6 +9,7 @@ const GoogleLoginButton = () => {
                 console.log(res);
                 alert('success');
             }}
+            auto_select
             type="icon"
         />
     );

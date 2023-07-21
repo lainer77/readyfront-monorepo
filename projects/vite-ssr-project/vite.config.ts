@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react';
+import sass from 'sass';
 import { UserConfig } from 'vite';
 import ssr from 'vite-plugin-ssr/plugin';
 
@@ -8,8 +9,15 @@ const config: UserConfig = {
             include: [/@common\/components/, /node_modules/],
         },
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                implementation: sass,
+            },
+        },
+    },
     optimizeDeps: {
-        include: ['@common/components', 'shallowequal', ''],
+        include: ['@common/components', 'shallowequal'],
     },
     plugins: [react(), ssr()],
     resolve: {

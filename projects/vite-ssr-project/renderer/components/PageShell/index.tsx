@@ -4,14 +4,12 @@ import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
 import type { PageContext } from '../../types';
 
-import cvUrl from '../../resources/svg/CV.svg';
-import githubUrl from '../../resources/svg/github.svg';
 import { PageContextProvider } from '../../usePageContext';
 import { GlobalStyle } from '../GlobalStyle';
 import GoogleLoginButton from '../GoogleLoginButton';
 import { Link } from '../Link';
 import { Profile } from '../Profile';
-import './PageShell.css';
+import './PageShell.scss';
 
 export { PageShell };
 
@@ -115,7 +113,7 @@ function Logo() {
                 marginBottom: 10,
             }}
         >
-            <img alt="cv" height={40} src={cvUrl} width={60} />
+            <img alt="cv" height={40} src="/svg/CV.svg" width={60} />
         </div>
     );
 }
@@ -123,7 +121,7 @@ function Logo() {
 function GithubLinkLogo() {
     return (
         <a href="https://github.com/lainer77">
-            <img alt="cv" height={30} src={githubUrl} width={30} />
+            <img alt="cv" height={30} src="/svg/github.svg" width={30} />
         </a>
     );
 }

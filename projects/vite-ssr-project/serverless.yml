@@ -18,6 +18,8 @@ provider:
     memorySize: 512 # mb
     timeout: 5 # seconds
     versionFunctions: false
+    httpApi:
+        cors: true
 
 package:
     individually: true

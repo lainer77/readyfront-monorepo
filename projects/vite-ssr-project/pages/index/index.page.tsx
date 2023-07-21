@@ -1,5 +1,5 @@
 import { StaticComponentEdit } from '../../renderer/components/StaticComponentEdit';
-import './home.css';
+import './home.scss';
 export function Page() {
     return (
         <section>

@@ -1,5 +1,3 @@
-import profile from 'resources/jpg/profile.jpg';
-
 export function Profile() {
     return (
         <a href="/">
@@ -10,7 +8,7 @@ export function Profile() {
                 }}
                 alt="profile"
                 height={64}
-                src={profile}
+                src={`${import.meta.env.VITE_CDN_URL}/img/profile.webp`}
                 width={64}
             />
         </a>
