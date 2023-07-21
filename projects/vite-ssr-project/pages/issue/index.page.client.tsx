@@ -3,14 +3,14 @@ import { Link, Route, Routes } from 'react-router-dom';
 import RenderMark from '../../renderer/components/RenderMark';
 
 export { Page };
-function My() {
+function Issue() {
     return (
         <div>
-            <h3>My</h3>
-            <Link className="navitem" to="/my">
-                My
+            <h3>issue</h3>
+            <Link className="navitem" to="/issue">
+                issue
             </Link>
-            <Link className="navitem" to="/my/setting">
+            <Link className="navitem" to="/issue/setting">
                 Setting
             </Link>
         </div>
@@ -20,10 +20,10 @@ function Setting() {
     return (
         <div>
             <h3>Setting</h3>
-            <Link className="navitem" to="/my">
-                My
+            <Link className="navitem" to="/issue">
+                issue
             </Link>
-            <Link className="navitem" to="/my/setting">
+            <Link className="navitem" to="/issue/setting">
                 Setting
             </Link>
         </div>
@@ -34,8 +34,8 @@ function Page() {
         <>
             <RenderMark type="CSR" />
             <Routes>
-                <Route element={<My />} path="/my/*" />
-                <Route element={<Setting />} path="/my/setting" />
+                <Route element={<Issue />} path="/issue/*" />
+                <Route element={<Setting />} path="/issue/setting" />
             </Routes>
         </>
         // </BrowserRouter>

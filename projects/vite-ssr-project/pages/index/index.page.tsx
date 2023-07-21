@@ -1,8 +1,10 @@
+import RenderMark from '../../renderer/components/RenderMark';
 import { StaticComponentEdit } from '../../renderer/components/StaticComponentEdit';
 import './home.scss';
 export function Page() {
     return (
         <section>
+            <RenderMark type="SSR" />
             <StaticComponentEdit>
                 <article className="cv-content">
                     <h2>

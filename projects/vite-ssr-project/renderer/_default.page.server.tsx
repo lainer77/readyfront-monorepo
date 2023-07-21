@@ -10,7 +10,6 @@ import type { PageContextServer } from './types';
 
 import { GlobalStyle } from './components/GlobalStyle';
 import { PageShell } from './components/PageShell';
-import logoUrl from './resources/svg/logo.svg';
 
 const sheet = new ServerStyleSheet();
 
@@ -34,6 +33,9 @@ async function render(pageContext: PageContextServer) {
         pageHtml = '';
     }
 
+    // Extract styles
+    const styles = sheet.getStyleTags();
+
     // See https://vite-plugin-ssr.com/head
     const { documentProps, getDocumentProps } = pageContext.exports;
 
@@ -51,6 +53,7 @@ async function render(pageContext: PageContextServer) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
+        <style>${styles}</style>
         <script src="https://giscus.app/client.js"
             data-repo="lainer77/readyfront-monorepo"
             data-repo-id="R_kgDOJ1cAlQ"

@@ -1,6 +1,7 @@
 import { IoIosFlask } from 'react-icons/Io';
 
 import { Editor } from '../../renderer/components/Editor';
+import RenderMark from '../../renderer/components/RenderMark';
 import { StaticComponentEdit } from '../../renderer/components/StaticComponentEdit';
 
 export { Page };
@@ -30,6 +31,7 @@ render(<Counter label='Counter' />);`;
 function Page() {
     return (
         <>
+            <RenderMark type="SSR" />
             <h1
                 style={{
                     alignItems: 'center',
