@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import type { PageContextClient } from './types';
 
-import { PageShell } from './components/PageShell';
+import { PageShell } from '../components/PageShell';
 
 // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
 async function render(pageContext: PageContextClient) {

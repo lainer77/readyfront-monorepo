@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from 'react-router-dom';
 
-import RenderMark from '../../renderer/components/RenderMark';
+import RenderMark from '../../components/RenderMark';
 
 export { Page };
 function Issue() {

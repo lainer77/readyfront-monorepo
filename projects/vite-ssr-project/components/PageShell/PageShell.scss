@@ -28,6 +28,10 @@ ul {
 .layout-container {
     display: flex;
     margin: auto;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
 }
 
 .sidebar-disabled {
@@ -38,22 +42,58 @@ ul {
     z-index: 1;
 }
 .sidebar {
+    position: sticky;
+    left: 0;
+    top: 0;
     align-items: center;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
     line-height: 1.8em;
     max-height: 100vh;
-}
-.sidebar-botton {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    margin-top: auto;
-}
+    background-color: white;
+    z-index: 1;
+    padding: 1rem;
+    .sidebar-botton {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+        margin-top: auto;
+    }
 
+    @media (max-width: 768px) {
+        flex-direction: row;
+        justify-self: center;
+        max-height: 6rem;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        .sidebar-botton {
+            margin: 0;
+            margin-left: auto;
+            flex-direction: row;
+            > a {
+                height: 30px;
+            }
+        }
+        .sidebar-disabled {
+            display: none;
+        }
+        .sidebar-abled {
+            display: none;
+        }
+        .profile {
+            height: 4rem;
+            width: 4rem;
+            margin-right: 3rem;
+            > img {
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+    }
+}
 .content-container {
     border-left: 2px solid #eee;
     min-height: 100vh;

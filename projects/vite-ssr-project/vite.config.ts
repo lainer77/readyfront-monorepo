@@ -22,9 +22,9 @@ const config: UserConfig = {
     plugins: [react(), ssr()],
     resolve: {
         alias: {
-            components: '/renderer/components',
-            hooks: '/renderer/hooks',
-            resources: '/renderer/resources',
+            components: './components',
+            hooks: './hooks',
+            resources: './resources',
         },
     },
     ssr: {

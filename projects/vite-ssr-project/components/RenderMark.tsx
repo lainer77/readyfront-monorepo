@@ -11,7 +11,7 @@ const MarkStyled = styled.div<{ type: tRenderMarkType }>`
         ({ CSR: 'red', ISR: 'yellow', SSG: 'green', SSR: 'blue' }[props.type])};
     color: ${(props) => ({ CSR: 'white', ISR: 'blue', SSG: 'yellow', SSR: 'white' }[props.type])};
     position: fixed;
-    top: 1rem;
+    bottom: 1rem;
     right: 1rem;
     z-index: 1;
     opacity: 0.4;

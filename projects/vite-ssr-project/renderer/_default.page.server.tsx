@@ -8,8 +8,8 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
 
 import type { PageContextServer } from './types';
 
-import { GlobalStyle } from './components/GlobalStyle';
-import { PageShell } from './components/PageShell';
+import { GlobalStyle } from '../components/GlobalStyle';
+import { PageShell } from '../components/PageShell';
 
 const sheet = new ServerStyleSheet();
 

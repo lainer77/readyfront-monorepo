@@ -1,6 +1,6 @@
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 
-import { usePrettierFormat } from '../../renderer/hooks/usePrettierFormat';
+import { usePrettierFormat } from '../hooks/usePrettierFormat';
 
 export function Editor({
     defaultCode,

@@ -1,6 +1,6 @@
 export function Profile() {
     return (
-        <a href="/">
+        <a className="profile" href="/">
             <img
                 style={{
                     borderRadius: '50%',

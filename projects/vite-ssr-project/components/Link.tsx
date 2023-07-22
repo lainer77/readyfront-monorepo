@@ -1,4 +1,4 @@
-import { usePageContext } from '../usePageContext';
+import { usePageContext } from '../renderer/usePageContext';
 
 export { Link };
 
