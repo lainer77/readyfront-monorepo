@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
-import { styled } from 'styled-components';
 
 import GoogleLoginButton from '../GoogleLoginButton';
 
