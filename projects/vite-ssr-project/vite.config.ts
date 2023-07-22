@@ -22,9 +22,8 @@ const config: UserConfig = {
     plugins: [react(), ssr()],
     resolve: {
         alias: {
-            components: './components',
-            hooks: './hooks',
-            resources: './resources',
+            '~components': '/components',
+            '~hooks': '/hooks',
         },
     },
     ssr: {

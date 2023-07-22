@@ -1,5 +1,6 @@
-import RenderMark from '../../components/RenderMark';
-import { StaticComponentEdit } from '../../components/StaticComponentEdit';
+import RenderMark from '~components/RenderMark';
+import { StaticComponentEdit } from '~components/StaticComponentEdit';
+
 import './home.scss';
 export function Page() {
     return (
