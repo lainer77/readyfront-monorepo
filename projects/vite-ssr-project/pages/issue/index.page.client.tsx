@@ -38,6 +38,5 @@ function Page() {
                 <Route element={<Setting />} path="/issue/setting" />
             </Routes>
         </>
-        // </BrowserRouter>
     );
 }

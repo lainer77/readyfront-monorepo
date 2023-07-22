@@ -14,6 +14,7 @@ const MarkStyled = styled.div<{ type: tRenderMarkType }>`
     top: 1rem;
     right: 1rem;
     z-index: 1;
+    opacity: 0.4;
 `;
 export default function RenderMark({ type }: { type: tRenderMarkType }) {
     return <MarkStyled type={type}>{type}</MarkStyled>;
