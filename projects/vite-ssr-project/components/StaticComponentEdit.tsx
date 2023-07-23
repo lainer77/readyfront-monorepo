@@ -8,30 +8,42 @@ export function StaticComponentEdit({
     children,
     defaultCode = '',
     noInline = true,
+    onEdit,
     scope,
 }: {
     children?: JSX.Element;
     defaultCode?: string;
     noInline?: boolean;
+    onEdit?: (value: string) => void;
     scope?: Record<string, unknown>;
 }) {
     let childrenText = children && ReactDOMServer.renderToString(children);
     if (children && noInline && !childrenText?.match(/render\(/))
         childrenText = `render(${childrenText})`;
     childrenText = childrenText?.replace(/class=/g, 'className=');
-    const code = usePrettierFormat(childrenText || defaultCode);
+    const prettierCode = usePrettierFormat(childrenText || defaultCode);
     const [mode, setMode] = useState<'edit' | 'show'>('show');
+    const [code, setCode] = useState(prettierCode);
+
+    const handleModeChange = () => {
+        if (mode === 'edit') onEdit?.(code);
+        setMode(mode === 'show' ? 'edit' : 'show');
+    };
+
     return (
-        <LiveProvider code={code} noInline={noInline} scope={scope}>
+        <LiveProvider code={prettierCode} enableTypeScript noInline={noInline} scope={scope}>
             <div style={{ position: 'relative' }}>
                 <button
-                    onClick={() => setMode(mode === 'show' ? 'edit' : 'show')}
+                    onClick={handleModeChange}
                     style={{ position: 'absolute', right: '0.5rem', top: '0.5rem' }}
                     type="button"
                 >
                     수정
                 </button>
-                <LiveEditor style={{ display: mode === 'edit' ? 'block' : 'none' }} />
+                <LiveEditor
+                    onChange={(code) => setCode(code)}
+                    style={{ display: mode === 'edit' ? 'block' : 'none' }}
+                />
                 <LivePreview style={{ display: mode === 'show' ? 'block' : 'none' }} />
                 <LiveError
                     style={{

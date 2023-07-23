@@ -53,7 +53,7 @@ async function render(pageContext: PageContextServer) {
         <meta name="description" content="${desc}" />
         <title>${title}</title>
         <style>${styles}</style>
-        <script src="https://giscus.app/client.js"
+        <!-- <script src="https://giscus.app/client.js"
             data-repo="lainer77/readyfront-monorepo"
             data-repo-id="R_kgDOJ1cAlQ"
             data-category="Announcements"
@@ -67,7 +67,7 @@ async function render(pageContext: PageContextServer) {
             data-lang="ko"
             crossorigin="anonymous"
             async>
-        </script>
+        </script> -->
       </head>
       <body>
         <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
