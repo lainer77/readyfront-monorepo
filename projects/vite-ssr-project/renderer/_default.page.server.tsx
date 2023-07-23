@@ -10,6 +10,8 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
 
 import type { PageContextServer } from './types';
 
+import './index.css';
+
 const sheet = new ServerStyleSheet();
 
 async function render(pageContext: PageContextServer) {
