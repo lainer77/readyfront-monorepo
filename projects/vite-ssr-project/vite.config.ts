@@ -27,7 +27,7 @@ const config: UserConfig = {
         'process.env': env,
     },
     optimizeDeps: {
-        include: ['@common/components', 'shallowequal'],
+        include: ['@common/components', 'shallowequal', 'styled-components'],
     },
     plugins: [react(), ssr()],
     resolve: {
@@ -38,10 +38,14 @@ const config: UserConfig = {
         },
     },
     ssr: {
-        noExternal: ['styled-components'],
-        optimizeDeps: {
-            include: ['styled-components'],
-        },
+        noExternal: [
+            'aws-sdk',
+            'express',
+            'serverless-http',
+            'dotenv',
+            'body-parser',
+            'cookie-parser',
+        ],
     },
 };
 
