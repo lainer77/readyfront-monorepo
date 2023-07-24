@@ -32,6 +32,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@antfu/utils@npm:^0.7.2":
+  version: 0.7.5
+  resolution: "@antfu/utils@npm:0.7.5"
+  checksum: df6451ded84b8ea8ad951434a7e146361f160c4a42904853749e45c214c24aedd9cb2e906c699ca32b4f780f2afb6413f8ca753f017c52f30267ff5064b66e31
+  languageName: node
+  linkType: hard
+
 "@apideck/better-ajv-errors@npm:^0.3.1":
   version: 0.3.6
   resolution: "@apideck/better-ajv-errors@npm:0.3.6"
@@ -6103,7 +6110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13":
+"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13, @jridgewell/sourcemap-codec@npm:^1.4.15":
   version: 1.4.15
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.15"
   checksum: b881c7e503db3fc7f3c1f35a1dd2655a188cc51a3612d76efc8a6eb74728bef5606e6758ee77423e564092b4a518aba569bbb21c9bac5ab7a35b0c6ae7e344c8
@@ -10048,6 +10055,32 @@ __metadata:
     "@webassemblyjs/wast-parser": 1.9.0
     "@xtuc/long": 4.2.2
   checksum: 3d1e1b2e84745a963f69acd1c02425b321dd2e608e11dabc467cae0c9a808962bc769ec9afc46fbcea7188cc1e47d72370da762d258f716fb367cb1a7865c54b
+  languageName: node
+  linkType: hard
+
+"@windicss/config@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@windicss/config@npm:1.9.0"
+  dependencies:
+    debug: ^4.3.4
+    jiti: ^1.18.2
+    windicss: ^3.5.6
+  checksum: cfe741ba6e985a057bdd5d1f695ae98935a5ca6fc51ff54381de0cc9aa24e66d8d47de19439406fb294d85b8a46236236fcfc40813509ff3e15cce7bd01e2717
+  languageName: node
+  linkType: hard
+
+"@windicss/plugin-utils@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@windicss/plugin-utils@npm:1.9.0"
+  dependencies:
+    "@antfu/utils": ^0.7.2
+    "@windicss/config": 1.9.0
+    debug: ^4.3.4
+    fast-glob: ^3.2.12
+    magic-string: ^0.30.0
+    micromatch: ^4.0.5
+    windicss: ^3.5.6
+  checksum: accac0ed77e8aa955acbed08d986fa9eb23df3cf324dcfc2161067007d762780e3783d8327ec316ea4bb895cd64a1b7759ebc2e60a758e40e0e755d797e79fff
   languageName: node
   linkType: hard
 
@@ -18980,6 +19013,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jiti@npm:^1.18.2":
+  version: 1.19.1
+  resolution: "jiti@npm:1.19.1"
+  bin:
+    jiti: bin/jiti.js
+  checksum: fdf55e315f9e81c04ae902416642062851d92c6cdcc17a59d5d1d35e1a0842e4e79be38da86613c5776fa18c579954542a441b93d1c347a50137dee2e558cbd0
+  languageName: node
+  linkType: hard
+
 "jmespath@npm:0.16.0":
   version: 0.16.0
   resolution: "jmespath@npm:0.16.0"
@@ -19322,6 +19364,13 @@ __metadata:
   version: 2.0.6
   resolution: "klona@npm:2.0.6"
   checksum: ac9ee3732e42b96feb67faae4d27cf49494e8a3bf3fa7115ce242fe04786788e0aff4741a07a45a2462e2079aa983d73d38519c85d65b70ef11447bbc3c58ce7
+  languageName: node
+  linkType: hard
+
+"kolorist@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "kolorist@npm:1.8.0"
+  checksum: b056de671acc8a17f1e78d6d46c47dae3e06481eabc9fed213dd9079a7454fd3a7ea1226ec718df81c9208877f7475d038ac27a400958fec278d975839e33643
   languageName: node
   linkType: hard
 
@@ -19750,6 +19799,15 @@ __metadata:
   dependencies:
     "@jridgewell/sourcemap-codec": ^1.4.13
   checksum: 273faaa50baadb7a2df6e442eac34ad611304fc08fe16e24fe2e472fd944bfcb73ffb50d2dc972dc04e92784222002af46868cb9698b1be181c81830fd95a13e
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.30.0":
+  version: 0.30.1
+  resolution: "magic-string@npm:0.30.1"
+  dependencies:
+    "@jridgewell/sourcemap-codec": ^1.4.15
+  checksum: 7bc7e4493e32a77068f3753bf8652d4ab44142122eb7fb9fa871af83bef2cd2c57518a6769701cd5d0379bd624a13bc8c72ca25ac5655b27e5a61adf1fd38db2
   languageName: node
   linkType: hard
 
@@ -27492,6 +27550,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite-plugin-windicss@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "vite-plugin-windicss@npm:1.9.0"
+  dependencies:
+    "@windicss/plugin-utils": 1.9.0
+    debug: ^4.3.4
+    kolorist: ^1.8.0
+    windicss: ^3.5.6
+  peerDependencies:
+    vite: ^2.0.1 || ^3.0.0 || ^4.0.0
+  checksum: fab727ae02c8bbdf272f078c291377b8882c1224226b5d5106d5bbfa13e14c628a403e7b7585491aaba67b7834c1414609b04396641537f532ed85ed39722dea
+  languageName: node
+  linkType: hard
+
 "vite-ssr-project@workspace:projects/vite-ssr-project":
   version: 0.0.0-use.local
   resolution: "vite-ssr-project@workspace:projects/vite-ssr-project"
@@ -27552,6 +27624,7 @@ __metadata:
     ua-parser-js: ^1.0.35
     vite: ^4.0.3
     vite-plugin-ssr: ^0.4.132
+    vite-plugin-windicss: ^1.9.0
   languageName: unknown
   linkType: soft
 
@@ -28117,6 +28190,15 @@ __metadata:
   dependencies:
     string-width: ^5.0.1
   checksum: 64c48cf27171221be5f86fc54b94dd29879165bdff1a7aa92dde723d9a8c99fb108312768a5d62c8c2b80b701fa27bbd36a1ddc58367585cd45c0db7920a0cba
+  languageName: node
+  linkType: hard
+
+"windicss@npm:^3.5.6":
+  version: 3.5.6
+  resolution: "windicss@npm:3.5.6"
+  bin:
+    windicss: cli/index.js
+  checksum: e4b6ab048488387b5bebfa6e65ccd0e55504f9133dfeb8c6cd4e817925b9941fff7680dc2aacc5923d293560e834427108039acff89eabe26a7429c0151eb1e7
   languageName: node
   linkType: hard
 

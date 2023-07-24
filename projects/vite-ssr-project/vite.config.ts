@@ -2,6 +2,7 @@ import react from '@vitejs/plugin-react';
 import sass from 'sass';
 import { UserConfig, loadEnv } from 'vite';
 import ssr from 'vite-plugin-ssr/plugin';
+import windiCSS from 'vite-plugin-windicss';
 
 const isProduction = process.env.NODE_ENV === 'production';
 // loadEnv 함수를 사용하여 .env 파일에 정의된 환경 변수들을 불러옴
@@ -29,7 +30,7 @@ const config: UserConfig = {
     optimizeDeps: {
         include: ['@common/components', 'shallowequal', 'styled-components'],
     },
-    plugins: [react(), ssr()],
+    plugins: [react(), ssr(), windiCSS()],
     resolve: {
         alias: {
             '#components': '/components',
