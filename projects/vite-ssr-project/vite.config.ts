@@ -39,7 +39,9 @@ const config: UserConfig = {
         },
     },
     ssr: {
+        // 사실 추가 안해도 차이는 없으나 혹시 모르니 추가
         noExternal: [
+            'normalize.css',
             'aws-sdk',
             'express',
             'serverless-http',
