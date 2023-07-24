@@ -1,6 +1,6 @@
 export { render };
 
-import { PageShell } from '~components/PageShell';
+import { PageShell } from '#components/PageShell';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 

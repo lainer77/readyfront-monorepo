@@ -1,6 +1,6 @@
-import { Editor } from '~components/Editor';
-import RenderMark from '~components/RenderMark';
-import { StaticComponentEdit } from '~components/StaticComponentEdit';
+import { Editor } from '#components/Editor';
+import RenderMark from '#components/RenderMark';
+import { StaticComponentEdit } from '#components/StaticComponentEdit';
 import { IoIosFlask } from 'react-icons/Io';
 
 export { Page };

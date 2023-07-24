@@ -30,9 +30,9 @@ function PageShell({
                         <Sidebar>
                             <Logo />
                             <Profile />
-                            <Link className="navitem" href="/">
+                            {/* <Link className="navitem" href="/">
                                 Home
-                            </Link>
+                            </Link> */}
                             {/* <Link className="navitem" href="/my">
                                 My
                             </Link> */}

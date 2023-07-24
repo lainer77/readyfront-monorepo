@@ -1,5 +1,5 @@
-import RenderMark from '~components/RenderMark';
-import { StaticComponentEdit } from '~components/StaticComponentEdit';
+import RenderMark from '#components/RenderMark';
+import { StaticComponentEdit } from '#components/StaticComponentEdit';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 

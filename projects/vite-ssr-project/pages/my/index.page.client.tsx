@@ -1,4 +1,4 @@
-import RenderMark from '~components/RenderMark';
+import RenderMark from '#components/RenderMark';
 import { Link, Route, Routes } from 'react-router-dom';
 
 export { Page };
