@@ -1,4 +1,3 @@
-export { render };
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = ['pageProps', 'urlPathname', 'documentProps'];
 
@@ -10,10 +9,9 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server';
 
 import type { PageContextServer } from './types';
 
-const sheet = new ServerStyleSheet();
-
-async function render(pageContext: PageContextServer) {
+export async function render(pageContext: PageContextServer) {
     const { Page, pageProps } = pageContext;
+    const sheet = new ServerStyleSheet();
 
     // Step 3: Extract the styles as <style> tags
     let pageHtml;
@@ -52,7 +50,7 @@ async function render(pageContext: PageContextServer) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
-        <style>${styles}</style>
+        <style>${dangerouslySkipEscape(styles)}</style>
         <!-- <script src="https://giscus.app/client.js"
             data-repo="lainer77/readyfront-monorepo"
             data-repo-id="R_kgDOJ1cAlQ"

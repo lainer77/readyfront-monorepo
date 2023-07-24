@@ -6,7 +6,7 @@
         "prod": "yarn lint && yarn build && yarn server:prod",
         "build": "vite build",
         "server": "ts-node --project ./tsconfig.json ./server/index.ts",
-        "server:prod": "cross-env NODE_ENV=production ts-node --project ./tsconfig.json ./server/index.ts",
+        "server:prod": "NODE_ENV=production ts-node --project ./tsconfig.json ./server/index.ts",
         "prod:lambda": "vite build && serverless offline",
         "deploy": "serverless deploy --verbose",
         "lint": "eslint . --fix --max-warnings 0"
@@ -20,7 +20,6 @@
         "body-parser": "^1.20.2",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
-        "cross-env": "^7.0.3",
         "dotenv": "^16.3.1",
         "express": "^4.18.1",
         "normalize.css": "^8.0.1",

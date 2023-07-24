@@ -113,3 +113,16 @@ ul {
         width: 100%;
     }
 }
+.render-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1;
+    opacity: 0.4;
+}

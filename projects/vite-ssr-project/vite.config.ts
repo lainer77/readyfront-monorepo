@@ -28,7 +28,7 @@ const config: UserConfig = {
         'process.env': env,
     },
     optimizeDeps: {
-        include: ['@common/components', 'shallowequal', 'styled-components'],
+        include: ['@common/components', 'shallowequal'],
     },
     plugins: [react(), ssr(), windiCSS()],
     resolve: {
