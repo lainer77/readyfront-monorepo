@@ -13,11 +13,10 @@ AWS.config.update({
 const s3 = new AWS.S3();
 // AWS CloudFront 객체 생성
 const cloudFront = new AWS.CloudFront();
-
 // 업데이트할 파일 정보
-const bucketName = process.env.VITE_CDN_BUCKET || '';
 // 업데이트 함수 정의
 export async function updateS3Object(fileName: string, dataToUpdate: string) {
+    const bucketName = process.env.VITE_CDN_BUCKET || '';
     if (!bucketName) throw new Error('bucketName이 없습니다');
     const params: AWS.S3.PutObjectRequest = {
         Body: dataToUpdate,

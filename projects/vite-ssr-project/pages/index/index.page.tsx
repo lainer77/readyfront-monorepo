@@ -17,9 +17,11 @@ export function Page(pageProps: { data: string }) {
         let code = newCode;
         if (code.startsWith('render('))
             code = code.replace('render(', '').replace(');', '').replace(/,$/, '');
-        axios.put('http://localhost:3000/@api/cdn/html/home.html', { data: code }).then(() => {
-            setDefaultCode(code);
-        });
+        axios
+            .put(`${import.meta.env.VITE_HOST}/@api/cdn/html/home.html`, { data: code })
+            .then(() => {
+                setDefaultCode(code);
+            });
     };
 
     return (

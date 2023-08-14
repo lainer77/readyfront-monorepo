@@ -1,6 +1,17 @@
 const esbuildPlugins = require('./esbuild-plugins.cjs');
 
+const dotenv = require('dotenv');
+
+// .env.production 파일 로드
+dotenv.config({ path: '.env.production' });
+
 module.exports = () => {
+    // 환경 변수를 문자열로 변환
+    const envDefines = Object.entries(process.env).reduce((acc, [key, value]) => {
+        acc[`process.env.${key}`] = JSON.stringify(value);
+        return acc;
+    }, {});
+
     return {
         packager: 'pnpm',
         platform: 'node',
@@ -17,6 +28,7 @@ module.exports = () => {
                 const __dirname = path.dirname(__filename);
             `,
         },
+        define: envDefines,
         plugins: esbuildPlugins,
     };
 };

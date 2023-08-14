@@ -128,8 +128,9 @@ app.all('/@api/*', async (req, res) => {
                         res.status(200).send(response.data);
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
+                    console.error(error);
                     // 원격 서버에서 에러가 발생하면 에러 메시지를 응답합니다.
-                    res.status(error.response?.status || 500).send(error.response?.data || 'Error');
+                    res.status(error.response?.status || 500).send(error.response?.data || error);
                 }
             }
 

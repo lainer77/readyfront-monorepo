@@ -25,8 +25,10 @@ package:
     individually: true
 
 functions:
-    vite-ssr:
+    vsp:
         handler: server/lambda.handler
+        layers:
+            - arn:aws:lambda:ap-northeast-2:617550243627:layer:aws-sdk-layer:1
         environment:
             NODE_ENV: production
         package:
