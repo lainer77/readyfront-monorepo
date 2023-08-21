@@ -3,10 +3,9 @@
 
 import React, { useContext } from 'react';
 
-import type { PageContext } from './types';
+import type { PageContext } from '../renderer/types';
 
-export { PageContextProvider };
-export { usePageContext };
+export { PageContextProvider, usePageContext };
 
 const Context = React.createContext<PageContext>(undefined as unknown as PageContext);
 

@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import Switch from '#components/Switch';
+import { useThemeContext } from '#hooks/useThemeContext';
+import { useEffect, useState } from 'react';
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
 import GoogleLoginButton from '../GoogleLoginButton';
@@ -13,6 +15,8 @@ function GithubLinkLogo() {
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
     const [isShowing, setIsShowing] = useState(true);
+    const { theme, toggleTheme } = useThemeContext();
+
     if (!isShowing)
         return (
             <div className="sidebar-disabled" onClick={() => setIsShowing((s) => !s)}>
@@ -25,6 +29,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
             <div className="sidebar-botton ">
                 <GithubLinkLogo />
                 <GoogleLoginButton />
+                <Switch onChange={() => toggleTheme()} value={theme === 'dark'} />
             </div>
             <div
                 className="sidebar-abled"

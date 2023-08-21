@@ -1,12 +1,12 @@
+import { GlobalStyle } from '#components/GlobalStyle';
+import { Link } from '#components/Link';
+import { Profile } from '#components/Profile';
+import { PageContextProvider } from '#hooks/usePageContext';
+import { ThemeProvider } from '#hooks/useThemeContext';
+import { PageContext } from '#renderer/types';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import React, { useEffect, useState } from 'react';
 
-import type { PageContext } from '../../renderer/types';
-
-import { PageContextProvider } from '../../renderer/usePageContext';
-import { GlobalStyle } from '../GlobalStyle';
-import { Link } from '../Link';
-import { Profile } from '../Profile';
 import './PageShell.scss';
 import Sidebar from './Sidebar';
 
@@ -20,33 +20,36 @@ function PageShell({
     pageContext: PageContext;
 }) {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
     return (
         <React.StrictMode>
-            <GlobalStyle />
+            <ThemeProvider>
+                <GlobalStyle />
 
-            <GoogleOAuthProvider clientId={clientId}>
-                <PageContextProvider pageContext={pageContext}>
-                    <Layout>
-                        <Sidebar>
-                            <Logo />
-                            <Profile />
-                            {/* <Link className="navitem" href="/">
+                <GoogleOAuthProvider clientId={clientId}>
+                    <PageContextProvider pageContext={pageContext}>
+                        <Layout>
+                            <Sidebar>
+                                <Logo />
+                                <Profile />
+                                {/* <Link className="navitem" href="/">
                                 Home
                             </Link> */}
-                            {/* <Link className="navitem" href="/my">
+                                {/* <Link className="navitem" href="/my">
                                 My
                             </Link> */}
-                            <Link className="navitem" href="/lab">
-                                Lab
-                            </Link>
-                            <Link className="navitem" href="/issue">
-                                Issue
-                            </Link>
-                        </Sidebar>
-                        <Content>{children}</Content>
-                    </Layout>
-                </PageContextProvider>
-            </GoogleOAuthProvider>
+                                <Link className="navitem" href="/lab">
+                                    Lab
+                                </Link>
+                                <Link className="navitem" href="/issue">
+                                    Issue
+                                </Link>
+                            </Sidebar>
+                            <Content>{children}</Content>
+                        </Layout>
+                    </PageContextProvider>
+                </GoogleOAuthProvider>
+            </ThemeProvider>
         </React.StrictMode>
     );
 }

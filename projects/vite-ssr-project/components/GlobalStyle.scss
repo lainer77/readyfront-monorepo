@@ -1,0 +1,32 @@
+/* This CSS is common to all pages */
+html {
+    /* 62.5% = 10px = 1rem */
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.4rem;
+    margin: 0;
+    font-family: sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding-inline-start: 2.5rem;
+}
+
+.clickable {
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.99);
+    }
+}

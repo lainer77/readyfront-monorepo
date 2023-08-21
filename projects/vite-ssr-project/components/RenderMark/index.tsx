@@ -1,3 +1,5 @@
+import './RenderMark.scss';
+
 export type tRenderMarkType = 'CSR' | 'ISR' | 'SSG' | 'SSR';
 
 export default function RenderMark({ type }: { type: tRenderMarkType }) {
