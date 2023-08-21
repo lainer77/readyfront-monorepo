@@ -1,27 +1,29 @@
+/* eslint-disable no-unused-vars */
+import React from 'react';
 import { useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
-
-import { usePrettierFormat } from '../hooks/usePrettierFormat';
 
 export function StaticComponentEdit({
     children,
     defaultCode = '',
     noInline = true,
     onEdit,
+    plugins,
     scope,
 }: {
-    children?: JSX.Element;
+    children?: React.JSX.Element;
     defaultCode?: string;
     noInline?: boolean;
     onEdit?: (value: string) => void;
+    plugins?: ((code: string) => string)[];
     scope?: Record<string, unknown>;
 }) {
     let childrenText = children && ReactDOMServer.renderToString(children);
     if (children && noInline && !childrenText?.match(/render\(/))
         childrenText = `render(${childrenText})`;
     childrenText = childrenText?.replace(/class=/g, 'className=');
-    const prettierCode = usePrettierFormat(childrenText || defaultCode);
+    const prettierCode = plugins?.reduce((acc, plugin) => plugin(acc), defaultCode) || defaultCode;
     const [mode, setMode] = useState<'edit' | 'show'>('show');
     const [code, setCode] = useState(prettierCode);
 

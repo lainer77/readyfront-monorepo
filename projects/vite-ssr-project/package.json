@@ -8,7 +8,7 @@
         "server": "ts-node --project ./tsconfig.json ./server/index.ts",
         "server:prod": "NODE_ENV=production ts-node --project ./tsconfig.json ./server/index.ts",
         "prod:lambda": "NODE_ENV=production vite build && serverless offline",
-        "deploy": "serverless deploy --verbose",
+        "deploy": "NODE_ENV=production vite build && serverless deploy --verbose",
         "lint": "eslint . --fix --max-warnings 0"
     },
     "dependencies": {

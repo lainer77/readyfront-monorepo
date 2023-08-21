@@ -1,5 +1,5 @@
 import RenderMark from '#components/RenderMark';
-import { StaticComponentEdit } from '#components/StaticComponentEdit';
+import { StaticComponentEdit } from '@common/components';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -16,7 +16,10 @@ export function Page(pageProps: { data: string }) {
     const handleHomeElementUpdate = (newCode: string) => {
         let code = newCode;
         if (code.startsWith('render('))
-            code = code.replace('render(', '').replace(');', '').replace(/,$/, '');
+            code = code
+                .replace(/^render\(/, '')
+                .replace(/;|,$/, '')
+                .replace(/\),?$/, '');
         axios
             .put(`${import.meta.env.VITE_HOST}/@api/cdn/html/home.html`, { data: code })
             .then(() => {
@@ -34,8 +37,3 @@ export function Page(pageProps: { data: string }) {
         </section>
     );
 }
-
-export const documentProps = {
-    description: '언제나 준비된 개발자가되기 위해',
-    title: '김대한의 CV',
-};
