@@ -1,6 +1,6 @@
 import Switch from '#components/Switch';
 import { useThemeContext } from '#hooks/useThemeContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
 import GoogleLoginButton from '../GoogleLoginButton';
