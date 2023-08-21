@@ -32,17 +32,14 @@ function PageShell({
                             <Sidebar>
                                 <Logo />
                                 <Profile />
-                                {/* <Link className="navitem" href="/">
-                                Home
-                            </Link> */}
-                                {/* <Link className="navitem" href="/my">
-                                My
-                            </Link> */}
                                 <Link className="navitem clickable" href="/lab">
                                     Lab
                                 </Link>
                                 <Link className="navitem clickable" href="/issue">
                                     Issue
+                                </Link>
+                                <Link className="navitem clickable" href="/setting">
+                                    Setting
                                 </Link>
                             </Sidebar>
                             <Content>{children}</Content>
