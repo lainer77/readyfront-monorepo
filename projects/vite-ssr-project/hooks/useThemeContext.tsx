@@ -5,6 +5,7 @@ export { ThemeProvider, darkTheme, lightTheme, useThemeContext };
 
 // 디폴트 테마 정의
 const lightTheme = {
+    activeColor: '#eee',
     backgroundColor: '#fff', // 다크 배경색
     errorColor: '#DC3545',
     primaryColor: '#007BFF',
@@ -13,6 +14,7 @@ const lightTheme = {
 };
 // 다크 테마 정의
 const darkTheme = {
+    activeColor: '#686969',
     backgroundColor: '#343a40', // 다크 배경색
     errorColor: '#DC3545',
     primaryColor: '#007BFF',

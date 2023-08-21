@@ -7,6 +7,7 @@ export function Profile() {
                     objectFit: 'cover',
                 }}
                 alt="profile"
+                className="clickable"
                 height={64}
                 src={`${import.meta.env.VITE_CDN_URL}/img/profile.webp`}
                 width={64}

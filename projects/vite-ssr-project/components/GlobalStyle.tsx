@@ -11,5 +11,6 @@ export const GlobalStyle = styled.createGlobalStyle`
         --error-color: ${({ theme }) => theme?.errorColor};
         --background-color: ${({ theme }) => theme?.backgroundColor};
         --text-color: ${({ theme }) => theme?.textColor};
+        --active-color: ${({ theme }) => theme?.activeColor};
     }
 `;

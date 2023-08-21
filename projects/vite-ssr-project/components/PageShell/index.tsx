@@ -38,10 +38,10 @@ function PageShell({
                                 {/* <Link className="navitem" href="/my">
                                 My
                             </Link> */}
-                                <Link className="navitem" href="/lab">
+                                <Link className="navitem clickable" href="/lab">
                                     Lab
                                 </Link>
-                                <Link className="navitem" href="/issue">
+                                <Link className="navitem clickable" href="/issue">
                                     Issue
                                 </Link>
                             </Sidebar>
