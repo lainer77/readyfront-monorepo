@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { PropsWithChildren } from 'react';
 
 import './globals.css';
 import { Providers } from './providers';
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Create Next App',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang="en">
             <body>

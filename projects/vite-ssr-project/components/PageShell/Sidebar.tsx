@@ -1,6 +1,6 @@
 import Switch from '#components/Switch';
 import { useThemeContext } from '#hooks/useThemeContext';
-import { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
 import GoogleLoginButton from '../GoogleLoginButton';
@@ -13,7 +13,7 @@ function GithubLinkLogo() {
     );
 }
 
-export default function Sidebar({ children }: { children: React.ReactNode }) {
+export default function Sidebar({ children }: PropsWithChildren) {
     const [isShowing, setIsShowing] = useState(true);
     const { theme, toggleTheme } = useThemeContext();
 

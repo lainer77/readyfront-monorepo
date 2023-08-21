@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
+import { PropsWithChildren, createContext, useContext, useEffect, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 export { ThemeProvider, darkTheme, lightTheme, useThemeContext };
@@ -33,11 +33,7 @@ const ThemeContext = createContext<ThemeContextProps>({
     toggleTheme: () => console.log('default theme'),
 });
 
-interface ThemeProviderProps {
-    children: ReactNode;
-}
-
-function ThemeProvider({ children }: ThemeProviderProps) {
+function ThemeProvider({ children }: PropsWithChildren) {
     const [theme, setTheme] = useState<tTheme>('light');
 
     const toggleTheme = () => {

@@ -20,6 +20,15 @@
     "eslint.workingDirectories": [
         {
             "pattern": "./packages/*/"
+        },
+        {
+            "pattern": "./projects/*/"
+        },
+        {
+            "pattern": "./nm-packages/*/"
+        },
+        {
+            "pattern": "./nm-projects/*/"
         }
     ],
     // workspace sdk eslint 사용

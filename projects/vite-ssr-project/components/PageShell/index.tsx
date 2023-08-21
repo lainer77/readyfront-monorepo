@@ -5,7 +5,7 @@ import { PageContextProvider } from '#hooks/usePageContext';
 import { ThemeProvider } from '#hooks/useThemeContext';
 import { PageContext } from '#renderer/types';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import React, { useEffect, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 
 import './PageShell.scss';
 import Sidebar from './Sidebar';
@@ -51,11 +51,11 @@ function PageShell({
     );
 }
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: PropsWithChildren) {
     return <div className="layout-container">{children}</div>;
 }
 
-function Content({ children }: { children: React.ReactNode }) {
+function Content({ children }: PropsWithChildren) {
     const [title, setTitle] = useState('');
     useEffect(() => {
         if (typeof document !== 'undefined') setTitle(document.title);
