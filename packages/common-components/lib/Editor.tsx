@@ -3,14 +3,19 @@ import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 export function Editor({
     defaultCode,
     noInline = true,
+    plugins,
     scope,
 }: {
     defaultCode: string;
     noInline?: boolean;
+    // eslint-disable-next-line no-unused-vars
+    plugins?: ((code: string) => string)[];
     scope?: Record<string, unknown>;
 }) {
+    const code = plugins?.reduce((acc, plugin) => plugin(acc), defaultCode) || defaultCode;
+
     return (
-        <LiveProvider code={defaultCode} noInline={noInline} scope={scope}>
+        <LiveProvider code={code} noInline={noInline} scope={scope}>
             <div
                 style={{
                     display: 'grid',
@@ -19,7 +24,12 @@ export function Editor({
                 }}
             >
                 <LiveEditor />
-                <LivePreview />
+                <LivePreview
+                    style={{
+                        backgroundColor: '#d5e6eb',
+                        padding: '1rem',
+                    }}
+                />
             </div>
             <LiveError
                 style={{

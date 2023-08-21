@@ -1,6 +1,7 @@
-import { Editor } from '#components/Editor';
 import RenderMark from '#components/RenderMark';
 import { StaticComponentEdit } from '#components/StaticComponentEdit';
+import { usePrettierFormat } from '#hooks/usePrettierFormat';
+import { Editor } from '@common/components';
 import { IoIosFlask } from 'react-icons/Io';
 
 export { Page };
@@ -48,6 +49,7 @@ function Page() {
                 }}
                 defaultCode={defaultCode}
                 noInline={!defaultCode.match(/rednder\(/)}
+                plugins={[usePrettierFormat]}
             />
             <h3>수정 가능 컴포넌트 테스트</h3>
             <StaticComponentEdit

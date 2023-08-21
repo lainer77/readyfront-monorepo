@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const config: UserConfig = {
     build: {
         commonjsOptions: {
-            include: [/@common\/components/, /node_modules/],
+            include: [/node_modules/],
         },
         // 조건부 설정 예시: production 환경에서만 minify를 활성화
         minify: isProduction,
@@ -28,7 +28,7 @@ const config: UserConfig = {
     },
     optimizeDeps: {
         exclude: ['aws-sdk'],
-        include: ['@common/components', 'shallowequal'],
+        include: ['shallowequal'],
     },
     plugins: [react(), ssr(), windiCSS()],
     resolve: {
