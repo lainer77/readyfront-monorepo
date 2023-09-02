@@ -1,41 +1,25 @@
 import RenderMark from '#components/RenderMark';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-export { Page };
-function Issue() {
-    return (
-        <div>
-            <h3>issue</h3>
-            <Link className="navitem" to="/issue">
-                issue
-            </Link>
-            <Link className="navitem" to="/issue/setting">
-                Setting
-            </Link>
-        </div>
-    );
-}
-function Setting() {
-    return (
-        <div>
-            <h3>Setting</h3>
-            <Link className="navitem" to="/issue">
-                issue
-            </Link>
-            <Link className="navitem" to="/issue/setting">
-                Setting
-            </Link>
-        </div>
-    );
-}
+import { IssuePage } from './IssuePage';
+import { DetailPage } from './detail';
+
+export { Page, documentProps, getDocumentProps };
+
 function Page() {
     return (
         <>
-            <RenderMark type="CSR" />
             <Routes>
-                <Route element={<Issue />} path="/issue/*" />
-                <Route element={<Setting />} path="/issue/setting" />
+                <Route element={<IssuePage />} path="/issue" />
+                <Route element={<DetailPage />} path="/issue/:issueId" />
             </Routes>
+            <RenderMark type="CSR" />
         </>
     );
 }
+
+const documentProps = {
+    description: 'Issue',
+    title: 'Issue',
+};
+const getDocumentProps = () => console.log('issue');

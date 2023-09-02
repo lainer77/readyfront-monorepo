@@ -5,7 +5,7 @@ import { PageContextProvider } from '#hooks/usePageContext';
 import { ThemeProvider } from '#hooks/useThemeContext';
 import { PageContext } from '#renderer/types';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import './PageShell.scss';
 import Sidebar from './Sidebar';
@@ -56,16 +56,18 @@ function Layout({ children }: PropsWithChildren) {
 }
 
 function Content({ children }: PropsWithChildren) {
-    const [title, setTitle] = useState('');
-    useEffect(() => {
-        if (typeof document !== 'undefined') setTitle(document.title);
-    }, []);
+    // const [title, setTitle] = useState('');
+    // useEffect(() => {
+    //     if (typeof document !== 'undefined') setTitle(document.title);
+    // }, []);
 
     return (
         <section className="content-container">
-            <header>
-                <h1>{title}</h1>
-            </header>
+            {/* {title && (
+                <header>
+                    <h1>{title}</h1>
+                </header>
+            )} */}
             <section
                 style={{
                     padding: 20,

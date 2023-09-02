@@ -36,11 +36,8 @@ export async function render(pageContext: PageContextServer) {
     // See https://vite-plugin-ssr.com/head
     const { documentProps, getDocumentProps } = pageContext.exports;
 
-    const title = getDocumentProps?.(pageProps).title || documentProps?.title || 'Vite SSR app';
-    const desc =
-        getDocumentProps?.(pageProps).description ||
-        documentProps?.description ||
-        'App using Vite + vite-plugin-ssr';
+    const title = getDocumentProps?.(pageProps).title || documentProps?.title || '';
+    const desc = getDocumentProps?.(pageProps).description || documentProps?.description || '';
 
     const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="ko">
