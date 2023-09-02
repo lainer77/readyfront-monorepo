@@ -34,7 +34,7 @@ export function StaticComponentEdit({
 
     return (
         <LiveProvider code={prettierCode} enableTypeScript noInline={noInline} scope={scope}>
-            <div style={{ position: 'relative' }}>
+            <div style={{ lineHeight: 1.4, position: 'relative' }}>
                 <button
                     onClick={handleModeChange}
                     style={{ position: 'absolute', right: '0.5rem', top: '0.5rem' }}

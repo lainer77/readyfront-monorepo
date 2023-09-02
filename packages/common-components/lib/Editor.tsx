@@ -21,6 +21,7 @@ export function Editor({
                     display: 'grid',
                     gap: '0.4rem',
                     gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                    lineHeight: 1.4,
                 }}
             >
                 <LiveEditor />

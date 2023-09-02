@@ -29,7 +29,7 @@ render(<Counter label='Counter' />);`;
 
 function Page() {
     return (
-        <>
+        <div style={{ lineHeight: 1.4 }}>
             <RenderMark type="SSR" />
             <h1
                 style={{
@@ -59,7 +59,7 @@ function Page() {
                 noInline={!defaultCode.match(/rednder\(/)}
                 plugins={[usePrettierFormat]}
             />
-        </>
+        </div>
     );
 }
 
