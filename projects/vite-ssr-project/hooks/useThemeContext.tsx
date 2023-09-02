@@ -7,6 +7,7 @@ export { ThemeProvider, darkTheme, lightTheme, useThemeContext };
 const lightTheme = {
     activeColor: '#eee',
     backgroundColor: '#fff', // 다크 배경색
+    descriptionColor: 'gray',
     errorColor: '#DC3545',
     primaryColor: '#007BFF',
     secondaryColor: '#28A745',
@@ -16,6 +17,7 @@ const lightTheme = {
 const darkTheme = {
     activeColor: '#686969',
     backgroundColor: '#343a40', // 다크 배경색
+    descriptionColor: 'lightslategray',
     errorColor: '#DC3545',
     primaryColor: '#007BFF',
     secondaryColor: '#28A745',

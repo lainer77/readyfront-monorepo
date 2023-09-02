@@ -12,5 +12,6 @@ export const GlobalStyle = styled.createGlobalStyle`
         --background-color: ${({ theme }) => theme?.backgroundColor};
         --text-color: ${({ theme }) => theme?.textColor};
         --active-color: ${({ theme }) => theme?.activeColor};
+        --description-color: ${({ theme }) => theme?.descriptionColor};
     }
 `;
