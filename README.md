@@ -15,6 +15,18 @@ echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
 direnv allow
 ```
 
+## scripts
+
+- 각 프로젝트 실행 명령어
+
+``` bash
+yarn vsp dev # vite-plugin-ssr 사용
+yarn cv dev # vite react 프로젝트
+yarn ma start # cra 기반
+yarn na dev # nextjs app 방식
+yarn nap dev # nextjs page 방식
+```
+
 ## my-app
 
  `nodeLinker: pnpm` 전환 후 "Cannot read properties of null (reading 'useState') error" 발생. eject 혹은 react-app-rewired 하여 postcss 제거 필요
