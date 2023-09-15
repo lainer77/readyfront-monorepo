@@ -11,6 +11,6 @@ module.exports = {
     plugins: ['react-refresh'],
     ignorePatterns: ['dist', 'dist.types'],
     rules: {
-        'react-refresh/only-export-components': 'warn',
+        // 'react-refresh/only-export-components': 'warn',
     },
 };

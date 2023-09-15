@@ -15,11 +15,11 @@
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "jsx": "react-jsx",
+        "jsx": "react",
 
         /* Bundler @types delaration */
         // "noEmit": true,
-        "typeRoots": ["./dist.types", "./node_modules/dist.types"],
+        // "typeRoots": ["./dist.types", "./node_modules/dist.types"],
         "noEmit": false,
         "emitDeclarationOnly": true,
         "declaration": true,
