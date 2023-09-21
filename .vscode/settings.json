@@ -57,5 +57,9 @@
     "[dotenv]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none"
 }
