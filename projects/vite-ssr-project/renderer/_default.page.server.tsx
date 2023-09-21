@@ -51,6 +51,8 @@ export async function render(pageContext: PageContextServer) {
       </head>
       <body>
         <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
+        <div id="react-portal-wrapper"></div>
+        
       </body>
     </html>`;
 

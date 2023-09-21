@@ -10,8 +10,9 @@ function Page() {
     return (
         <>
             <Routes>
-                <Route element={<IssuePage />} path="/issue" />
-                <Route element={<DetailPage />} path="/issue/:issueId" />
+                <Route element={<IssuePage />} path="/issue/*" />
+                <Route element={<IssuePage />} path="/issue/:issueId" />
+                <Route element={<DetailPage />} path="/issue/detail/:issueId" />
             </Routes>
             <RenderMark type="CSR" />
         </>

@@ -1,3 +1,43 @@
 .card {
     flex: 1;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid gray;
+    min-width: 25rem;
+    max-width: 25%;
+    .draggable {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        cursor: pointer;
+        > p {
+            margin: 0;
+            background-color: gray;
+            width: 2.2rem;
+            line-height: 0.8rem;
+            font-size: 1.2rem;
+            text-align: center;
+            border-radius: 0.3rem;
+        }
+    }
+    .card-header {
+        padding: 0 0.5rem;
+        font-size: 1.5rem;
+        border-bottom: 0.1rem solid gray;
+    }
+    .card-body {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        color: var(--description-color);
+    }
+    .card-action {
+        border-top: 0.1rem solid gray;
+        font-size: 1rem;
+        color: cadetblue;
+        text-align: center;
+        padding-top: 0.5rem;
+    }
 }
