@@ -24,7 +24,9 @@ const catsData = {
     편안: '08',
     행복함: '11',
 };
-
+function imageChange(status) {
+    if (catsData[status]) image.src = catsImageUrl + catsData[status] + '.png';
+}
 function addMessage(message, sender) {
     // 새로운 div 생성
     const messageElement = document.createElement('pre');
@@ -36,31 +38,13 @@ function addMessage(message, sender) {
     else messageElement.textContent = message;
     chatMessages.prepend(messageElement);
 }
-function imageChange(status) {
-    console.log(`imageChange: '${status}', '${catsData[status]}'`);
-    if (catsData[status]) image.src = catsImageUrl + catsData[status] + '.png';
-}
-function messageFilter(message) {
-    if (message.match('집사:')) return false;
-    if (!message.startsWith('나비:')) return false;
-    if (!message.match('기분:')) return false;
-    if (!message.match('[이전 대화 내용]')) return false;
-
-    return true;
-}
 // ChatGPT API 요청
-async function fetchAIResponse(prompt, count = 0) {
+async function fetchAIResponse(prompt) {
     // API 요청에 사용할 옵션을 정의
     const requestOptions = {
         body: JSON.stringify({
-            messages: [
-                ...historyList,
-                systemRole,
-                {
-                    content: prompt, // 사용자가 입력한 메시지
-                    role: 'user', // 메시지 역할을 user로 설정
-                },
-            ],
+            messages: historyList,
+            prompt,
         }),
         // API 요청의 헤더를 설정
         headers: {
@@ -72,10 +56,7 @@ async function fetchAIResponse(prompt, count = 0) {
     try {
         const response = await fetch('/api/chatbot', requestOptions);
         const data = await response.json();
-        let aiResponse = data.choices[0].message.content;
-        if (!aiResponse.startsWith('나비:')) aiResponse = '나비: ' + aiResponse;
-        if (count < 5 && !messageFilter(aiResponse))
-            aiResponse = await fetchAIResponse(prompt, count + 1);
+        let aiResponse = data.content;
         historyList = historyList.concat([
             {
                 content: prompt, // 사용자가 입력한 메시지

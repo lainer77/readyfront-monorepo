@@ -30,8 +30,27 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
                 height: 100vh;
                 margin: 0;
+            }
+            #title {
+                display: none;
+            }
+
+            /* 데스크탑 환경에서 "나비야" 문구를 노출시키는 미디어 쿼리 */
+            @media screen and (min-width: 768px) {
+                #title {
+                    display: block;
+                    padding: 15px;
+                    text-align: center;
+                    color: #fff;
+                    font-size: 3em;
+                    font-weight: bold;
+                    text-shadow: 4px 4px 5px rgba(228, 165, 210, 0.3);
+                    letter-spacing: 1.5px;
+                    margin-bottom: 20px;
+                }
             }
 
             .message {
@@ -51,8 +70,10 @@
             }
 
             #chat-container {
-                width: 400px;
-                height: 600px;
+                max-width: 400px;
+                max-height: 600px;
+                height: 100%;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 border: 2px solid #d292b8;
@@ -114,22 +135,11 @@
     </head>
 
     <body>
+        <h2 id="title">나비야~</h2>
         <div id="chat-container">
-            <div
-                style="
-                    background-color: #e4a5d2;
-                    padding: 10px;
-                    text-align: center;
-                    font-weight: 600;
-                    font-size: 24px;
-                    color: white;
-                "
-            >
-                나비야~
-            </div>
             <img
                 id="image"
-                src="https://cdn.readyfront.co.kr/img/cats/고양이_01_기쁨.png"
+                src="https://cdn.readyfront.co.kr/img/cats/고양이_01.png"
                 alt="cat"
             />
             <div id="chat-messages"></div>
