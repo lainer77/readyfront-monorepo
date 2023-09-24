@@ -9863,7 +9863,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:*, @types/express@npm:^4, @types/express@npm:^4.17.13, @types/express@npm:^4.17.14":
+"@types/express@npm:*, @types/express@npm:^4.17.13, @types/express@npm:^4.17.14":
   version: 4.17.17
   resolution: "@types/express@npm:4.17.17"
   dependencies:
@@ -13170,9 +13170,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chatbot@workspace:projects/chatbot":
+"chatbot@workspace:nm-projects/chatbot":
   version: 0.0.0-use.local
-  resolution: "chatbot@workspace:projects/chatbot"
+  resolution: "chatbot@workspace:nm-projects/chatbot"
   dependencies:
     serverless-offline: ^13.0.0
     serverless-python-requirements: ^6.0.0
@@ -16421,21 +16421,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express-app@workspace:projects/chatbot/express-app":
-  version: 0.0.0-use.local
-  resolution: "express-app@workspace:projects/chatbot/express-app"
-  dependencies:
-    "@types/body-parser": ^1
-    "@types/express": ^4
-    body-parser: ^1.20.2
-    dotenv: ^16.3.1
-    express: ^4.18.2
-    node-fetch: ^3.3.2
-    serverless-http: ^3.2.0
-  languageName: unknown
-  linkType: soft
-
-"express@npm:^4.17.1, express@npm:^4.17.3, express@npm:^4.18.1, express@npm:^4.18.2":
+"express@npm:^4.17.1, express@npm:^4.17.3, express@npm:^4.18.1":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
   dependencies:
@@ -21926,17 +21912,6 @@ __metadata:
     fetch-blob: ^3.1.4
     formdata-polyfill: ^4.0.10
   checksum: 62145fd3ba4770a76110bc31fdc0054ab2f5442b5ce96e9c4b39fc9e94a3d305560eec76e1165d9259eab866e02a8eecf9301062bb5dfc9f08a4d08b69d223dd
-  languageName: node
-  linkType: hard
-
-"node-fetch@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "node-fetch@npm:3.3.2"
-  dependencies:
-    data-uri-to-buffer: ^4.0.0
-    fetch-blob: ^3.1.4
-    formdata-polyfill: ^4.0.10
-  checksum: 06a04095a2ddf05b0830a0d5302699704d59bda3102894ea64c7b9d4c865ecdff2d90fd042df7f5bc40337266961cb6183dcc808ea4f3000d024f422b462da92
   languageName: node
   linkType: hard
 
