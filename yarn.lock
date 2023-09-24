@@ -13170,21 +13170,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chatbot-express@workspace:nm-projects/chatbot":
-  version: 0.0.0-use.local
-  resolution: "chatbot-express@workspace:nm-projects/chatbot"
-  dependencies:
-    "@types/body-parser": ^1
-    "@types/express": ^4
-    body-parser: ^1.20.2
-    dotenv: ^16.3.1
-    express: ^4.18.2
-    node-fetch: ^3.3.2
-    serverless-http: ^3.2.0
-    serverless-offline: ^13.0.0
-  languageName: unknown
-  linkType: soft
-
 "chatbot-flask@workspace:projects/chatbot-flask":
   version: 0.0.0-use.local
   resolution: "chatbot-flask@workspace:projects/chatbot-flask"
@@ -13195,9 +13180,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"chatbot@workspace:projects/chatbot":
+"chatbot@workspace:nm-projects/chatbot":
   version: 0.0.0-use.local
-  resolution: "chatbot@workspace:projects/chatbot"
+  resolution: "chatbot@workspace:nm-projects/chatbot"
   dependencies:
     "@types/body-parser": ^1
     "@types/express": ^4
