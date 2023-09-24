@@ -45,3 +45,5 @@ package:
         - README.md
         - package.json
         - sentence_transformer_layer
+        - serverless-flask.yml
+        - _serverless.yml
