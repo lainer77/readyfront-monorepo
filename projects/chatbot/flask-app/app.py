@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from sentence_transformers import SentenceTransformer, util
-import numpy as np
+import os
 
 app = Flask(__name__)
 model = SentenceTransformer('jhgan/ko-sroberta-multitask')  # 지정한 모델로 변경
@@ -24,4 +24,5 @@ def calculate_similarity():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    if os.environ.get("FLASK_ENV") == "development":
+        app.run(debug=True)

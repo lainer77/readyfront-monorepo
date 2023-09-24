@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import fetch from 'node-fetch';
 import path from 'path';
+import serverless from 'serverless-http';
 import { fileURLToPath } from 'url';
 
 dotenv.config();
@@ -179,3 +180,5 @@ app.post('/api/chatbot', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+export const handler = serverless(app);

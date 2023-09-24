@@ -1,0 +1,38 @@
+service: chatbot-express
+
+provider:
+    name: aws
+    runtime: nodejs18.x
+    stage: dev
+    region: ap-northeast-2
+
+functions:
+    expressApp:
+        handler: express-app/server.handler
+        environment:
+            OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+        events:
+            - http:
+                  path: /
+                  method: any
+            - http:
+                  path: '{proxy+}'
+                  method: any
+
+plugins:
+    - serverless-offline
+
+custom:
+    serverless-offline:
+        noPrependStageInUrl: true
+        printOutput: true
+        prefix: ''
+
+package:
+    include:
+        - express-app/**
+    exclude:
+        - node_modules/**
+        - .envrc
+        - README.md
+        - package.json

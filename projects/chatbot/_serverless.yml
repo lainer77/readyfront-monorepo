@@ -1,0 +1,47 @@
+service: chatbot
+
+provider:
+    name: aws
+    runtime: nodejs18.x
+    stage: dev
+    region: ap-northeast-2
+
+functions:
+    expressApp:
+        handler: express-app/server.handler
+        environment:
+            OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+        events:
+            - http:
+                  path: /
+                  method: any
+            - http:
+                  path: '{proxy+}'
+                  method: any
+plugins:
+    - serverless-offline
+    - serverless-wsgi
+    - serverless-python-requirements
+custom:
+    serverless-offline:
+        noPrependStageInUrl: true
+        printOutput: true
+        prefix: ''
+    pythonRequirements:
+        dockerizePip: non-linux # 비 리눅스 환경에서도 도커를 사용하여 패키징
+    wsgi:
+        app: flask-app/app.app # 앱 위치 및 Flask 앱 변수 이름
+        packRequirements: false
+
+package:
+    individually: false
+    include:
+        - express-app/**
+        - flask-app/** # 현재 sentence-transformers 패키지가 단독으로 700mb가 넘어가 제회하고 배포
+    exclude:
+        - flask-app/**
+        - node_modules/**
+        - .envrc
+        - README.md
+        - package.json
+        - sentence_transformer_layer

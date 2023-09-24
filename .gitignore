@@ -150,3 +150,7 @@ cypress/log
 
 # esbuild
 .esbuild
+
+# python
+vendored
+sentence_transformer_layer
