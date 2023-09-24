@@ -177,8 +177,8 @@ app.post('/api/chatbot', async (req, res) => {
     fetchAIResponse(req, res);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
 
 export const handler = serverless(app);

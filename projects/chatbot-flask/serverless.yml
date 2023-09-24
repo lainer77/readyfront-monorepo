@@ -8,7 +8,7 @@ provider:
 
 functions:
     flaskApp:
-        handler: flask-app/app.handler
+        handler: app.handler
         events:
             - http:
                   path: /
@@ -23,16 +23,13 @@ plugins:
 
 custom:
     wsgi:
-        app: flask-app/app.app
+        app: app.app
         packRequirements: false
     pythonRequirements:
         dockerizePip: non-linux
 
 package:
-    include:
-        - flask-app/**
     exclude:
-        - node_modules/**
         - .envrc
         - README.md
         - package.json

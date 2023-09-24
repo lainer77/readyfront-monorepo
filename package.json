@@ -4,7 +4,6 @@
     "private": true,
     "workspaces": [
         "projects/*",
-        "projects/chatbot/*",
         "nm-projects/*",
         "packages/*",
         "nm-packages/*"

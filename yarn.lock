@@ -13170,13 +13170,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chatbot@workspace:projects/chatbot":
+"chatbot-express@workspace:nm-projects/chatbot":
   version: 0.0.0-use.local
-  resolution: "chatbot@workspace:projects/chatbot"
+  resolution: "chatbot-express@workspace:nm-projects/chatbot"
+  dependencies:
+    "@types/body-parser": ^1
+    "@types/express": ^4
+    body-parser: ^1.20.2
+    dotenv: ^16.3.1
+    express: ^4.18.2
+    node-fetch: ^3.3.2
+    serverless-http: ^3.2.0
+    serverless-offline: ^13.0.0
+  languageName: unknown
+  linkType: soft
+
+"chatbot-flask@workspace:projects/chatbot-flask":
+  version: 0.0.0-use.local
+  resolution: "chatbot-flask@workspace:projects/chatbot-flask"
   dependencies:
     serverless-offline: ^13.0.0
     serverless-python-requirements: ^6.0.0
     serverless-wsgi: ^3.0.2
+  languageName: unknown
+  linkType: soft
+
+"chatbot@workspace:projects/chatbot":
+  version: 0.0.0-use.local
+  resolution: "chatbot@workspace:projects/chatbot"
+  dependencies:
+    "@types/body-parser": ^1
+    "@types/express": ^4
+    body-parser: ^1.20.2
+    dotenv: ^16.3.1
+    express: ^4.18.2
+    node-fetch: ^3.3.2
+    serverless-http: ^3.2.0
+    serverless-offline: ^13.0.0
   languageName: unknown
   linkType: soft
 
@@ -16420,20 +16450,6 @@ __metadata:
   checksum: b2c66beb52de53ef1872165aace40224e722bca3c2274c54cfa74b6d617d55cf0ccdbf36783ccd64dbea501b280098ed33fd0b207d4f15bc03cd3c7a24364a6a
   languageName: node
   linkType: hard
-
-"express-app@workspace:projects/chatbot/express-app":
-  version: 0.0.0-use.local
-  resolution: "express-app@workspace:projects/chatbot/express-app"
-  dependencies:
-    "@types/body-parser": ^1
-    "@types/express": ^4
-    body-parser: ^1.20.2
-    dotenv: ^16.3.1
-    express: ^4.18.2
-    node-fetch: ^3.3.2
-    serverless-http: ^3.2.0
-  languageName: unknown
-  linkType: soft
 
 "express@npm:^4.17.1, express@npm:^4.17.3, express@npm:^4.18.1, express@npm:^4.18.2":
   version: 4.18.2

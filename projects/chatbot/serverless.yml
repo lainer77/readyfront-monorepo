@@ -1,4 +1,4 @@
-service: chatbot-express
+service: chatbot
 
 provider:
     name: aws
@@ -8,7 +8,7 @@ provider:
 
 functions:
     expressApp:
-        handler: express-app/server.handler
+        handler: server.handler
         environment:
             OPENAI_API_KEY: ${env:OPENAI_API_KEY}
         events:
@@ -18,7 +18,6 @@ functions:
             - http:
                   path: '{proxy+}'
                   method: any
-
 plugins:
     - serverless-offline
 
@@ -27,12 +26,11 @@ custom:
         noPrependStageInUrl: true
         printOutput: true
         prefix: ''
-
-package:
-    include:
-        - express-app/**
-    exclude:
-        - node_modules/**
-        - .envrc
-        - README.md
-        - package.json
+# package:
+#     include:
+#         - express-app/**
+#     exclude:
+#         - node_modules/**
+#         - .envrc
+#         - README.md
+#         - package.json

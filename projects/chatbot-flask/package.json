@@ -1,0 +1,18 @@
+{
+    "name": "chatbot-flask",
+    "packageManager": "yarn@3.6.0",
+    "private": true,
+    "version": "1.0.0",
+    "author": "lainer <zlepgk123@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "app": "FLASK_ENV=development python3 app.py",
+        "deploy": "sls deploy",
+        "offline": "sls offline"
+    },
+    "devDependencies": {
+        "serverless-offline": "^13.0.0",
+        "serverless-python-requirements": "^6.0.0",
+        "serverless-wsgi": "^3.0.2"
+    }
+}
