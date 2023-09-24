@@ -1,5 +1,20 @@
 # 챗봇 테스트용 프로젝트
 
+프로젝트 구조
+
+``` txt
+/chatbot
+├── express-app
+│   ├── server.js
+│   ├── package.json
+│   └── node_modules/
+├── flask-app
+│   ├── app.py
+│   └── requirements.txt
+├── serverless.yml
+└── package.json
+```
+
 1. **프로젝트 구조**:
    - 전체 구조는 두 개의 애플리케이션으로 나누어져 있습니다.
       - `express-app`: Node.js/Express 기반 앱

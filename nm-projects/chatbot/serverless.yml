@@ -22,6 +22,7 @@ plugins:
     - serverless-offline
     - serverless-wsgi
     - serverless-python-requirements
+    - serverless-plugin-include-dependencies
 custom:
     serverless-offline:
         noPrependStageInUrl: true
@@ -34,16 +35,18 @@ custom:
         packRequirements: false
 
 package:
-    individually: false
     include:
         - express-app/**
+        - express-app/node_modules/**
         - flask-app/** # 현재 sentence-transformers 패키지가 단독으로 700mb가 넘어가 제외하고 배포
     exclude:
         # - flask-app/**
-        - node_modules/**
+        # - node_modules/**
         - .envrc
         - README.md
         - package.json
         - sentence_transformer_layer
         - serverless-flask.yml
         - _serverless.yml
+    # excludeDevDependencies: false # 상위 package.json에 dependencies가 없어서 하위의 종속석도 같이 포함되지 않는 이슈
+    
