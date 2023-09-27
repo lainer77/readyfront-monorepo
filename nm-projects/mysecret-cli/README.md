@@ -1,6 +1,7 @@
 # mysecret-cli
 
 `mysecret-cli`는 AWS Lambda와 Serverless를 사용하여 구성된 CLI 도구입니다. 이 도구를 사용하면 명령어를 통해 암호화된 정보를 안전하게 가져올 수 있습니다.
+hashicorp vault, AWS Secrets Manager등의 더 좋은 서비스가 이미 있지만, 이후 다른 cli 확장을 따로 만들 생각이라 연습할겸 제작
 
 ## 시작하기
 
