@@ -5,10 +5,10 @@ const SECRET_PASSWORD = process.env.SECRET_PASSWORD;
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
 export const getSecret = async (event) => {
-    const body = JSON.parse(event.body);
     const fileKey = event.queryStringParameters?.fileKey;
+    const passwordFromHeader = event.headers.password;
 
-    if (!fileKey || !event.requestContext.authorizer || body.password !== SECRET_PASSWORD) {
+    if (!fileKey || passwordFromHeader !== SECRET_PASSWORD) {
         console.warn('Unauthorized request!');
         return {
             statusCode: 403,
