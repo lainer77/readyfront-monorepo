@@ -1,14 +1,13 @@
 import AWS from 'aws-sdk';
 
 const s3 = new AWS.S3();
-const SECRET_PASSWORD = process.env.SECRET_PASSWORD;
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
 export const getSecret = async (event) => {
     const fileKey = event.queryStringParameters?.fileKey;
-    const passwordFromHeader = event.headers.password;
+    const authorizer = event.requestContext.authorizer; // cli에서 로그인 후 인증 받은 cognito의 토큰
 
-    if (!fileKey || passwordFromHeader !== SECRET_PASSWORD) {
+    if (!fileKey || !authorizer) {
         console.warn('Unauthorized request!');
         return {
             statusCode: 403,

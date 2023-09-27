@@ -14,3 +14,25 @@ functions:
                   path: secret
                   method: post
                   cors: true
+                  authorizer:
+                      type: COGNITO_USER_POOLS
+                      authorizerId:
+                          Ref: CognitoUserPoolMySecretUserPoolAuthorizer # Cognito User Pool의 ARN을 참종!
+
+resources:
+    Resources:
+        CognitoUserPoolMySecretUserPool:
+            Type: AWS::Cognito::UserPool
+            Properties:
+                UserPoolName: MySecretUserPool
+
+        CognitoUserPoolMySecretUserPoolAuthorizer:
+            Type: AWS::ApiGateway::Authorizer
+            Properties:
+                Name: mySecretAuthorizer
+                IdentitySource: method.request.header.Authorization # mysecet-cli에서 전달받은 토큰
+                RestApiId:
+                    Ref: ApiGatewayRestApi
+                Type: COGNITO_USER_POOLS
+                ProviderARNs:
+                    - Fn::GetAtt: [CognitoUserPoolMySecretUserPool, Arn]
