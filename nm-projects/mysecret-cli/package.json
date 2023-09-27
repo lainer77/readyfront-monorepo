@@ -1,0 +1,13 @@
+{
+    "name": "mysecret-cli",
+    "type": "module",
+    "packageManager": "yarn@3.6.0",
+    "bin": {
+        "mysecret": "./mysecret-cli.js"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.1465.0",
+        "axios": "^1.5.1",
+        "commander": "^11.0.0"
+    }
+}

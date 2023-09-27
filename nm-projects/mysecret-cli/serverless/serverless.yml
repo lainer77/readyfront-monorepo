@@ -1,0 +1,16 @@
+service: mysecret-cli
+
+provider:
+    name: aws
+    runtime: nodejs18.x
+    stage: dev
+    region: ap-northeast-2
+
+functions:
+    getSecret:
+        handler: handler.getSecret
+        events:
+            - http:
+                  path: secret
+                  method: post
+                  cors: true
