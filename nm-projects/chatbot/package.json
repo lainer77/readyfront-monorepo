@@ -13,7 +13,6 @@
     },
     "devDependencies": {
         "serverless-offline": "^13.0.0",
-        "serverless-plugin-include-dependencies": "^5.1.0",
         "serverless-python-requirements": "^6.0.0",
         "serverless-wsgi": "^3.0.2"
     }

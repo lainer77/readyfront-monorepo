@@ -23,7 +23,7 @@ plugins:
     - serverless-offline
     - serverless-wsgi
     - serverless-python-requirements
-    - serverless-plugin-include-dependencies
+    # - serverless-plugin-include-dependencies
 custom:
     serverless-offline:
         noPrependStageInUrl: true
@@ -35,14 +35,14 @@ custom:
         app: flask-app/app.app # 앱 위치 및 Flask 앱 변수 이름
         packRequirements: false
     cloudfrontInvalidate:
-        distributionIdKey: ${env:CLOUDFRONT_DISTRIBUTION_ID}  # CloudFormation에서 CloudFront 배포 ID의 키 이름
-        items: ["/*"]  # 모든 캐시 항목을 무효화
+        distributionIdKey: ${env:CLOUDFRONT_DISTRIBUTION_ID} # CloudFormation에서 CloudFront 배포 ID의 키 이름
+        items: ['/*'] # 모든 캐시 항목을 무효화
 
 package:
     include:
         - express-app/**
         - express-app/node_modules/**
-        - flask-app/** 
+        - flask-app/**
     exclude:
         - .envrc
         - README.md
@@ -50,4 +50,3 @@ package:
         - sentence_transformer_layer
         - serverless-flask.yml
         - _serverless.yml
-    
