@@ -85,7 +85,7 @@ module.exports = {
             },
         },
         {
-            files: ['projects/chatbot/**/*.ts?(x)', 'projects/chatbot/**/*.js?(x)'],
+            files: ['nm-projects/chatbot/**/*.ts?(x)', 'nm-projects/chatbot/**/*.js?(x)'],
             plugins: ['@typescript-eslint'],
             settings: {
                 react: {

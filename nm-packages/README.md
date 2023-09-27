@@ -8,5 +8,7 @@
 ```zsh
 mkdir sb
 cd sb
+touch yarn.lock
 npx storybook init
+yarn
 ```
