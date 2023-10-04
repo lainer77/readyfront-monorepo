@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "sh-start": "lite-server --baseDir='sheepHills'",
+        "mr-start": "lite-server --baseDir='mouseRect'",
+        "sr-start": "lite-server --baseDir='shapeRotate'",
+        "bb-start": "lite-server --baseDir='bouncyBall'"
+    },
+    "devDependencies": {
+        "lite-server": "^2.6.1"
+    },
+    "name": "interactive-study",
+    "version": "1.0.0",
+    "main": "index.html",
+    "author": "lainer",
+    "license": "MIT",
+    "private": true
+}
