@@ -18,14 +18,6 @@ export class Sun {
         this.fpsTime = 1000 / this.fps;
     }
 
-    resize(stageWidth, stageHeight) {
-        this.stageWidth = stageWidth;
-        this.stageHeight = stageHeight;
-
-        this.x = this.stageWidth - (this.stageHeight / 10) * 3;
-        this.y = (this.stageHeight / 10) * 3;
-    }
-
     draw(ctx, t) {
         if (!this.time) this.time = t;
         const now = t - this.time;
@@ -47,6 +39,24 @@ export class Sun {
         ctx.fill();
     }
 
+    getCirclePoint(radius, t) {
+        const theta = Math.PI * 2 * t;
+
+        return { x: Math.cos(theta) * radius, y: Math.sin(theta) * radius };
+    }
+
+    ranInt(max) {
+        return Math.random() * max;
+    }
+
+    resize(stageWidth, stageHeight) {
+        this.stageWidth = stageWidth;
+        this.stageHeight = stageHeight;
+
+        this.x = this.stageWidth - (this.stageHeight / 10) * 3;
+        this.y = (this.stageHeight / 10) * 3;
+    }
+
     updatePoints() {
         for (let i = 1; i < this.total; i++) {
             const pos = this.originPos[i];
@@ -55,15 +65,5 @@ export class Sun {
                 y: pos.y + this.ranInt(this.vi),
             };
         }
-    }
-
-    ranInt(max) {
-        return Math.random() * max;
-    }
-
-    getCirclePoint(radius, t) {
-        const theta = Math.PI * 2 * t;
-
-        return { x: Math.cos(theta) * radius, y: Math.sin(theta) * radius };
     }
 }

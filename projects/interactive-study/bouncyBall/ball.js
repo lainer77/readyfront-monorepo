@@ -9,35 +9,6 @@ export class Ball {
         this.y = diameter + (Math.random() * stageHeight - diameter);
     }
 
-    draw(ctx, stageWidth, stageHeight, block) {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        this.bounceWindow(stageWidth, stageHeight);
-
-        this.bounceBlock(block);
-
-        ctx.fillStyle = "#fdd700";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        ctx.fill();
-    }
-
-    bounceWindow(stageWidth, stageHeight) {
-        const minX = this.radius;
-        const minY = this.radius;
-        const maxX = stageWidth - this.radius;
-        const maxY = stageHeight - this.radius;
-
-        if (this.x <= minX || this.x >= maxX) {
-            this.vx *= -1;
-            this.x += this.vx;
-        } else if (this.y <= minX || this.y >= maxY) {
-            this.vy *= -1;
-            this.y += this.vy;
-        }
-    }
-
     bounceBlock(block) {
         const minX = block.x - this.radius;
         const minY = block.y - this.radius;
@@ -61,5 +32,34 @@ export class Ball {
                 this.y += this.vy;
             }
         }
+    }
+
+    bounceWindow(stageWidth, stageHeight) {
+        const minX = this.radius;
+        const minY = this.radius;
+        const maxX = stageWidth - this.radius;
+        const maxY = stageHeight - this.radius;
+
+        if (this.x <= minX || this.x >= maxX) {
+            this.vx *= -1;
+            this.x += this.vx;
+        } else if (this.y <= minY || this.y >= maxY) {
+            this.vy *= -1;
+            this.y += this.vy;
+        }
+    }
+
+    draw(ctx, stageWidth, stageHeight, block) {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        this.bounceWindow(stageWidth, stageHeight);
+
+        this.bounceBlock(block);
+
+        ctx.fillStyle = '#fdd700';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fill();
     }
 }

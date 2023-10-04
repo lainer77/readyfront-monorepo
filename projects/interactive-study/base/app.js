@@ -1,4 +1,4 @@
-import { Interactive } from "./interactive.js";
+import { Interactive } from './interactive.js';
 
 class App extends Interactive {
     constructor() {
@@ -6,17 +6,19 @@ class App extends Interactive {
         // 초기화 코드
     }
 
+    animate(t) {
+        super.animate(t);
+    }
+
     /**
      * resize가 일어나고, requestAnimationFrame가 실행되기 이전에 초기화 코드
      */
-    init() {}
+    init() {
+        //
+    }
 
     resize() {
         super.resize();
-    }
-
-    animate(t) {
-        super.animate(t);
     }
 }
 

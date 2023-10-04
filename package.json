@@ -15,6 +15,7 @@
         "ma": "yarn workspace my-app",
         "na": "yarn workspace next-app",
         "nap": "yarn workspace next-app-pages",
+        "is": "yarn workspace interactive-study",
         "utils": "yarn workspace @common/utils",
         "components": "yarn workspace @common/components",
         "packages-build": "yarn workspaces foreach -ptR --from '{@common/utils,@common/components}' run build",

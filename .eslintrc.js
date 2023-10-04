@@ -68,6 +68,8 @@ module.exports = {
                         'always-on-top': ['src', 'key', 'className'],
                     },
                 ],
+                'no-undef': 'off',
+                '@typescript-eslint/no-var-requires': 'off',
             },
         },
         {

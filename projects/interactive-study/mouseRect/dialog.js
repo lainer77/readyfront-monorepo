@@ -1,4 +1,4 @@
-import { Point } from "./point.js";
+import { Point } from './point.js';
 
 const FOLLOW_SPEED = 0.08;
 const ROTATE_SPEED = 0.12;
@@ -25,18 +25,8 @@ export class Dialog {
         this.isDown = false;
     }
 
-    resize(stageWidth, stageHeight) {
-        this.pos.x = Math.random() * (stageWidth - WIDTH);
-        this.pos.y = Math.random() * (stageHeight - HEIGHT);
-        this.target = this.pos.clone();
-        this.prevPos = this.pos.clone();
-    }
-
     animate(ctx) {
-        const move = this.target
-            .clone()
-            .subtract(this.pos)
-            .reduce(FOLLOW_SPEED);
+        const move = this.target.clone().subtract(this.pos).reduce(FOLLOW_SPEED);
         this.pos.add(move);
 
         this.centerPos = this.pos.clone().add(this.mousePos);
@@ -49,26 +39,6 @@ export class Dialog {
         this.swingDrag(ctx);
 
         this.prevPos = this.pos.clone();
-    }
-
-    swingDrag(ctx) {
-        const dx = this.pos.x - this.prevPos.x;
-        const speedX = Math.abs(dx) / FPS;
-        const speed = Math.min(Math.max(speedX, 0), 1);
-
-        let rotation = (MAX_ANGLE / 1) * speed;
-        rotation = rotation * (dx > 0 ? 1 : -1) - this.sideValue;
-
-        this.rotation += (rotation - this.rotation) * ROTATE_SPEED;
-
-        const tmpPos = this.pos.clone().add(this.origin);
-        ctx.save();
-        ctx.translate(tmpPos.x, tmpPos.y);
-        ctx.rotate((this.rotation * Math.PI) / 180);
-        ctx.beginPath();
-        ctx.fillStyle = "#f4e55a";
-        ctx.fillRect(-this.origin.x, -this.origin.y, WIDTH, HEIGHT);
-        ctx.restore();
     }
 
     down(point) {
@@ -87,13 +57,37 @@ export class Dialog {
             return this;
         } else return null;
     }
+
     move(point) {
         if (this.isDown) {
-            this.target = this.startPos
-                .clone()
-                .add(point)
-                .subtract(this.downPos);
+            this.target = this.startPos.clone().add(point).subtract(this.downPos);
         }
+    }
+
+    resize(stageWidth, stageHeight) {
+        this.pos.x = Math.random() * (stageWidth - WIDTH);
+        this.pos.y = Math.random() * (stageHeight - HEIGHT);
+        this.target = this.pos.clone();
+        this.prevPos = this.pos.clone();
+    }
+    swingDrag(ctx) {
+        const dx = this.pos.x - this.prevPos.x;
+        const speedX = Math.abs(dx) / FPS;
+        const speed = Math.min(Math.max(speedX, 0), 1);
+
+        let rotation = (MAX_ANGLE / 1) * speed;
+        rotation = rotation * (dx > 0 ? 1 : -1) - this.sideValue;
+
+        this.rotation += (rotation - this.rotation) * ROTATE_SPEED;
+
+        const tmpPos = this.pos.clone().add(this.origin);
+        ctx.save();
+        ctx.translate(tmpPos.x, tmpPos.y);
+        ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.beginPath();
+        ctx.fillStyle = '#f4e55a';
+        ctx.fillRect(-this.origin.x, -this.origin.y, WIDTH, HEIGHT);
+        ctx.restore();
     }
     up() {
         this.isDown = false;
