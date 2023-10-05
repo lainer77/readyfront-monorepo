@@ -1,6 +1,6 @@
 # interactive-study
 
-Interactive Developer 님의 유튜브를 보고 실습 진행한 예제 프로젝트
+## Interactive Developer 님의 유튜브를 보고 실습 진행한 예제 프로젝트
 
 - bouncyball: 튕기는 볼
 - mouseRect: 줄에 끌리는 박스
@@ -10,6 +10,8 @@ Interactive Developer 님의 유튜브를 보고 실습 진행한 예제 프로�
 ## 추가 실습
 
 base 폴더를 복사해서, 진행할 실습으로 이름 변경 후 package.json scripts에 `lite-server --baseDir='projectName'"` 추가
+
+- maskClick: 추후에 mask 영역 별로 구분해서 이미지에서 어떤 사물이 클릭되었는지 판별할 수 있도록 하는데 응용할 수 있도록 실험
 
 ## 추가 작업
 
