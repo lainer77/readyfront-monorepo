@@ -2,8 +2,8 @@ import { Interactive } from './interactive.js';
 import { Polygon } from './polygon.js';
 
 class App extends Interactive {
-    animate(t) {
-        super.animate(t);
+    animate() {
+        super.animate();
 
         this.moveX *= 0.92;
 

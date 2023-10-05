@@ -15,7 +15,7 @@ export class Interactive {
         }, 0);
     }
 
-    animate(t) {
+    animate() {
         requestAnimationFrame(this.animate.bind(this));
 
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);

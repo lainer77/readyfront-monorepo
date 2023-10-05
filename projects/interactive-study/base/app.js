@@ -7,7 +7,7 @@ class App extends Interactive {
     }
 
     animate(t) {
-        super.animate(t);
+        super.animate();
     }
 
     /**

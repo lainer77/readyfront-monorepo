@@ -18,7 +18,7 @@ class App extends Interactive {
     }
 
     animate(t) {
-        super.animate(t);
+        super.animate();
 
         for (let i = 0; i < this.suns.length; i++) {
             this.suns[i].draw(this.ctx, t);

@@ -3,8 +3,8 @@ import { Block } from './block.js';
 import { Interactive } from './interactive.js';
 
 class App extends Interactive {
-    animate(t) {
-        super.animate(t);
+    animate() {
+        super.animate();
         this.block.draw(this.ctx);
         this.ball.draw(this.ctx, this.stageWidth, this.stageHeight, this.block);
     }
