@@ -5,35 +5,53 @@ import { useEffect, useState } from 'react';
 
 import './home.scss';
 
-export function Page(pageProps: { data: string }) {
-    const [defaultCode, setDefaultCode] = useState(pageProps.data);
+export function Page(pageProps: { experience: string; introduction: string; skills: string }) {
+    const [data, setData] = useState(pageProps);
 
     useEffect(() => {
-        if (defaultCode !== pageProps.data) setDefaultCode(pageProps.data);
+        if (
+            pageProps.experience !== data.experience ||
+            pageProps.introduction !== data.introduction ||
+            pageProps.skills !== data.skills
+        )
+            setData(pageProps);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageProps.data]);
+    }, [pageProps.experience]);
 
-    const handleHomeElementUpdate = (newCode: string) => {
-        let code = newCode;
-        if (code.startsWith('render('))
-            code = code
-                .replace(/^render\(/, '')
-                .replace(/;|,$/, '')
-                .replace(/\),?$/, '');
-        axios
-            .put(`${import.meta.env.VITE_HOST}/@api/cdn/html/home.html`, { data: code })
-            .then(() => {
-                setDefaultCode(code);
-            });
-    };
+    const handleHomeElementUpdate =
+        (fileName: 'experience' | 'introduction' | 'skills') => (newCode: string) => {
+            if (!newCode || newCode === undefined || newCode === 'undefined') return;
+            let code = newCode;
+            if (code.startsWith('render('))
+                code = code
+                    .replace(/^render\(/, '')
+                    .replace(/;|,$/, '')
+                    .replace(/\),?$/, '');
+            axios
+                .put(`${import.meta.env.VITE_HOST}/@api/cdn/html/${fileName}.html`, { data: code })
+                .then(() => {
+                    setData((d) => ({ ...d, [fileName]: code }));
+                });
+        };
 
     return (
-        <section>
+        <>
+            <article className="cv-content">
+                <StaticComponentEdit
+                    defaultCode={`render(${data.introduction})`}
+                    onEdit={handleHomeElementUpdate('introduction')}
+                />
+
+                <StaticComponentEdit
+                    defaultCode={`render(${data.experience})`}
+                    onEdit={handleHomeElementUpdate('experience')}
+                />
+                <StaticComponentEdit
+                    defaultCode={`render(${data.skills})`}
+                    onEdit={handleHomeElementUpdate('skills')}
+                />
+            </article>
             <RenderMark type="SSR" />
-            <StaticComponentEdit
-                defaultCode={`render(${defaultCode})`}
-                onEdit={handleHomeElementUpdate}
-            />
-        </section>
+        </>
     );
 }
