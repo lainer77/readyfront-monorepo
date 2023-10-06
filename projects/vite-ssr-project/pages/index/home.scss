@@ -9,11 +9,35 @@
         > li {
             margin-bottom: 0.5rem;
             line-height: 2rem;
-            .description {
-                font-size: 1.2rem;
-                margin: 0;
-                color: var(--description-color);
-            }
         }
     }
+}
+
+.cv-section {
+    width: 800px;
+}
+.flex-gap {
+    display: flex;
+    gap: calc(1 * 1rem);
+    & > :first-child {
+        flex: 3 1 0%;
+        max-width: 20rem;
+    }
+    & > :last-child {
+        flex: 7 1 0%;
+    }
+}
+.flex-side {
+    position: relative;
+    height: auto;
+    & div {
+        position: sticky;
+        top: 5rem;
+        z-index: 1;
+    }
+}
+.description {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--description-color);
 }
