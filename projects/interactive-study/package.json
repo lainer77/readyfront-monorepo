@@ -4,7 +4,8 @@
         "mr-start": "lite-server --baseDir='mouseRect'",
         "sr-start": "lite-server --baseDir='shapeRotate'",
         "bb-start": "lite-server --baseDir='bouncyBall'",
-        "mc-start": "lite-server --baseDir='maskClick'"
+        "mc-start": "lite-server --baseDir='maskClick'",
+        "deploy": "aws s3 sync ./ s3://interactive.readyfront.co.kr  --profile=readyfront-deploy --exclude 'node_modules/*'"
     },
     "devDependencies": {
         "lite-server": "^2.6.1"
