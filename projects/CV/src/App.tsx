@@ -1,14 +1,16 @@
-import './App.css';
+import './App.scss';
 import Content from './components/Content';
-import Header from './components/Header';
+import Footer from './components/Footer';
+// import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
 function App() {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <Sidebar />
             <Content />
+            <Footer />
         </>
     );
 }

@@ -1,71 +1,59 @@
-import { CSSProperties, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { FaBriefcase, FaHome, FaWrench } from 'react-icons/fa';
+import { FiMenu } from 'react-icons/fi';
+
+import './Sidebar.scss';
 
 function Sidebar() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const sidebarRef = useRef<HTMLDivElement>(null);
 
-    const sidebarStyle: CSSProperties = {
-        backgroundColor: '#333',
-        color: 'white',
-        height: '100%',
-        left: 0,
-        maxWidth: '200px',
-        overflowY: 'auto',
-        padding: '1em',
-        position: 'fixed',
-        top: 0,
-        zIndex: 2,
+    const toggleSidebar = (state: boolean) => {
+        setIsOpen(state);
+        document.body.style.overflow = state ? 'hidden' : 'auto';
     };
 
-    const navStyle: CSSProperties = {
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        listStyleType: 'none',
-        margin: 0,
-        padding: 0,
-    };
+    useEffect(() => {
+        const handleClickOutside = (e: Event) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
+                toggleSidebar(false);
+            }
+        };
 
-    const navItemStyle: CSSProperties = {
-        margin: '0.5em 0',
-    };
-
-    const linkStyle: CSSProperties = {
-        color: 'white',
-        textDecoration: 'none',
-    };
-
-    const dropdownStyle: CSSProperties = {
-        display: isOpen ? 'block' : 'none',
-    };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
-        <section style={sidebarStyle}>
-            {/* Navigation Links */}
-            <nav>
-                <ul style={navStyle}>
-                    <li onClick={() => setIsOpen(!isOpen)} style={navItemStyle}>
-                        메뉴
-                        <ul style={{ ...navItemStyle, ...dropdownStyle }}>
-                            <li>
-                                <a href="#about-me" style={linkStyle}>
-                                    자기소개
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#experience" style={linkStyle}>
-                                    경력
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#portfolio" style={linkStyle}>
-                                    포트폴리오
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </section>
+        <>
+            {isOpen && <div className="overlay" onClick={() => toggleSidebar(false)} />}
+            {!isOpen && <FiMenu className="menuIcon" onClick={() => toggleSidebar(!isOpen)} />}
+            <div className={`sidebar ${isOpen ? 'isOpen' : 'isClosed'}`} ref={sidebarRef}>
+                <nav>
+                    <ul>
+                        <li>
+                            {isOpen && (
+                                <ul>
+                                    {Object.entries({
+                                        '#': ['자기소개', <FaHome key="home" />],
+                                        '#experience': ['경력', <FaBriefcase key="briefcase" />],
+                                        '#skills': ['기술 및 역량 요약', <FaWrench key="wrench" />],
+                                    }).map(([key, [value, icon]]) => (
+                                        <li key={key}>
+                                            <a href={key} onClick={() => toggleSidebar(false)}>
+                                                {icon} {value}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </>
     );
 }
 

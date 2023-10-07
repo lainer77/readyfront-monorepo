@@ -6,7 +6,9 @@
             "react-dom": ["./node_modules/react-dom"],
             "#components/*": ["./components/*"],
             "#renderer/*": ["./renderer/*"],
-            "#hooks/*": ["./hooks/*"]
+            "#hooks/*": ["./hooks/*"],
+            "@common/components": ["../../packages/common-components/lib/index.ts"],
+            "@common/utils": ["../../packages/common-utils/lib/index.ts"]
         },
         "strict": true,
         "module": "es2022",

@@ -5005,7 +5005,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@common/components@workspace:packages/common-components"
   dependencies:
-    "@types/node": ^20.3.2
     "@types/react": ^18.0.37
     "@types/react-dom": ^18.0.11
     "@typescript-eslint/eslint-plugin": ^5.59.0
@@ -10369,10 +10368,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.11.9":
-  version: 18.16.18
-  resolution: "@types/node@npm:18.16.18"
-  checksum: d32d8a0a04cd3f5ecb361bcb42f3a07623881ac90d680e06bf626defb3c663a94860d11690babe607cfe67265eceeb8a59ba5fe40c0e49f5a1b01e0088640469
+"@types/node@npm:^20.8.3":
+  version: 20.8.3
+  resolution: "@types/node@npm:20.8.3"
+  checksum: bfb88b341faeb19f8fd37306a3bf433721b876c6491d10fcb0b13fd26601fa36ee45113dd82b1e1c23e3c957dff5b99f81a16493cefa03abe797e41a2487a4f7
   languageName: node
   linkType: hard
 
@@ -14967,6 +14966,7 @@ __metadata:
   resolution: "cv@workspace:projects/CV"
   dependencies:
     "@common/components": "workspace:^"
+    "@common/utils": "workspace:^"
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@mui/material": ^5.14.12
@@ -14982,8 +14982,10 @@ __metadata:
     eslint-plugin-react-refresh: ^0.3.4
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^4.11.0
     react-markdown: ^9.0.0
     react-scroll: ^1.8.9
+    sass: ^1.69.0
     typescript: ^5.0.2
     vite: ^4.3.9
   languageName: unknown
@@ -22654,6 +22656,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "monorepo-boilerplate@workspace:."
   dependencies:
+    "@types/node": ^20.8.3
     "@types/react": ^18.0.8
     "@typescript-eslint/eslint-plugin": ^5.59.0
     "@typescript-eslint/parser": ^5.59.0
@@ -25760,6 +25763,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-icons@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "react-icons@npm:4.11.0"
+  peerDependencies:
+    react: "*"
+  checksum: 7b8b80bbe2dabcc54b6c2129b7761a04b19caebe24389adc7683478ef41212b9ca0b53c63abcc06b3c01b94c84855ec5142b4c357e19c4aaaad9a4db23a3c485
+  languageName: node
+  linkType: hard
+
 "react-inspector@npm:^5.1.0":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1"
@@ -26903,6 +26915,19 @@ __metadata:
   bin:
     sass: sass.js
   checksum: b4eb9b1bdeb1c00e76427d7fe3e5f80d831327178cdee657aa4e014edfc64ebbfe43177147403da1e04d76a24f4093f5a9b1c8d9d80c94579937d8adc5a6ef66
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.69.0":
+  version: 1.69.0
+  resolution: "sass@npm:1.69.0"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: eabea31ea3b1dd529c7eff345c8b6468afe6ab8011bd4f95caa2cffb8fb115cc055ea21de425be6197f7ed22516f5652eccb98d315d592ea152ada553f964b8a
   languageName: node
   linkType: hard
 
@@ -30342,7 +30367,6 @@ __metadata:
     "@types/cookie-parser": ^1
     "@types/cors": ^2
     "@types/express": ^4.17.14
-    "@types/node": ^18.11.9
     "@types/prettier": ^2.7.3
     "@types/react": ^18.0.8
     "@types/react-dom": ^18.0.3
