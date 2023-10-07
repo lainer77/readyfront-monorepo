@@ -43,7 +43,7 @@ html {
     }
 }
 .cv-section {
-    width: 800px;
+    max-width: 800px;
 }
 .flex-gap {
     display: flex;
