@@ -28,7 +28,12 @@ export function Page(pageProps: { experience: string; introduction: string; skil
                     .replace(/;|,$/, '')
                     .replace(/\),?$/, '');
             axios
-                .put(`${import.meta.env.VITE_HOST}/@api/cdn/html/${fileName}.html`, { data: code })
+                .put(
+                    `${
+                        import.meta.env.VITE_API_GATEWAY_URL || import.meta.env.VITE_HOST
+                    }/@api/cdn/html/${fileName}.html`,
+                    { data: code },
+                )
                 .then(() => {
                     setData((d) => ({ ...d, [fileName]: code }));
                 });

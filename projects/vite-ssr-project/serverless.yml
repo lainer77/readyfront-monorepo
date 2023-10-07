@@ -15,8 +15,8 @@ provider:
     profile: serverless-admin
     deploymentMethod: direct
     runtime: nodejs18.x
-    memorySize: 512 # mb
-    timeout: 5 # seconds
+    memorySize: 1536 # mb
+    timeout: 15 # seconds
     versionFunctions: false
     httpApi:
         cors: true
