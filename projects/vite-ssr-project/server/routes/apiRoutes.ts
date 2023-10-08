@@ -2,7 +2,7 @@ import axios from 'axios';
 import express from 'express';
 import { Readable } from 'stream';
 
-import { updateS3Object } from '../aws/s3';
+import { updateS3Object } from '../aws/s3.js';
 
 export const setupApiRoutes = (app: express.Application) => {
     app.all('/@api/*', async (req, res) => {
