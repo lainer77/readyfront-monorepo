@@ -50,13 +50,17 @@ app.get('*', async (req, res, next) => {
         maxAge: 3600000, // 쿠키 유효 기간 (1시간)
         secure: true, // HTTPS 프로토콜에서만 전송되도록 설정
     });
+    const user = req.isAuthenticated() ? req.user : null;
+
+    if (!user) {
+        res.status(401).send('Unauthorized');
+        return;
+    }
+
     const userAgentInfo = getUserAgentInfo(req.headers['user-agent'] || '');
     const deviceType = userAgentInfo.getDevice().type || 'desktop';
 
-    const pageContextInit = {
-        deviceType,
-        urlOriginal: req.originalUrl,
-    };
+    const pageContextInit = { deviceType, urlOriginal: req.originalUrl, user };
 
     const pageContext = await renderPage(pageContextInit);
     const { httpResponse } = pageContext;
