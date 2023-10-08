@@ -13,6 +13,7 @@ AWS.config.update({
 const s3 = new AWS.S3();
 // AWS CloudFront 객체 생성
 const cloudFront = new AWS.CloudFront();
+
 // 업데이트할 파일 정보
 // 업데이트 함수 정의
 export async function updateS3Object(fileName: string, dataToUpdate: string) {
