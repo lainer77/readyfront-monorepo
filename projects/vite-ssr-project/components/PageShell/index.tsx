@@ -81,5 +81,7 @@ function Content({ children }: PropsWithChildren) {
 }
 
 function Logo() {
-    return <img alt="cv" height={40} src="/svg/CV.svg" width={60} />;
+    return (
+        <img alt="rf" height={40} src="/svg/RF.svg" style={{ marginBottom: '2rem' }} width={60} />
+    );
 }
