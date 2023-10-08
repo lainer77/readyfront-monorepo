@@ -5,10 +5,10 @@ import express from 'express';
 import process from 'process';
 import { renderPage } from 'vite-plugin-ssr/server';
 
-import { setupMiddleware } from './middleware/index.js';
-import { root } from './root.js';
-import { setupApiRoutes } from './routes/apiRoutes.js';
-import { getUserAgentInfo } from './utils/index.js';
+import { setupMiddleware } from './middleware';
+import { root } from './root';
+import { setupApiRoutes } from './routes/apiRoutes';
+import { getUserAgentInfo } from './utils';
 
 dotenv.config(); // .env 파일을 로드하여 환경 변수 설정
 

@@ -3,8 +3,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 
-import { setupGoogleAuth } from './googleAuth.js';
-import { setupSession } from './sessionConfig.js';
+import { setupGoogleAuth } from './googleAuth';
+import { setupSession } from './sessionConfig';
 
 export const setupMiddleware = (app: express.Application) => {
     app.use(cookieParser());
