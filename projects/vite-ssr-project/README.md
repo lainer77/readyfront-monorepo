@@ -1,5 +1,21 @@
 # vite-ssr-project
 
+## server 구조
+
+- src/
+  - middleware/
+    - index.ts
+  - routes/
+    - apiRoutes.ts
+  - utils/
+    - index.ts
+  - aws/
+    - s3.ts
+  - app.ts
+  - index.ts
+  - root.ts
+  - lambda.ts
+  
 참조
 
 - [tailwindcss](https://tailwindcss.com/docs/guides/vite)
