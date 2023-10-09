@@ -5,16 +5,21 @@ import { useEffect, useState } from 'react';
 
 import './home.scss';
 
-export function Page(pageProps: { experience: string; introduction: string; skills: string }) {
-    const [data, setData] = useState(pageProps);
+export function Page() {
+    const [data, setData] = useState<{ experience: string; introduction: string; skills: string }>({
+        experience: '',
+        introduction: '',
+        skills: '',
+    });
 
     useEffect(() => {
-        if (
-            pageProps.experience !== data.experience ||
-            pageProps.introduction !== data.introduction ||
-            pageProps.skills !== data.skills
-        )
-            setData(pageProps);
+        Promise.all([
+            axios.get('/api/cdn/html/introduction.html'),
+            axios.get('/api/cdn/html/experience.html'),
+            axios.get('/api/cdn/html/skills.html'),
+        ]).then((res) => {
+            setData({ experience: res[1].data, introduction: res[0].data, skills: res[2].data });
+        });
         // URL에서 토큰을 추출하여 로컬 스토리지에 저장
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
@@ -28,8 +33,7 @@ export function Page(pageProps: { experience: string; introduction: string; skil
                 : window.location.pathname;
             window.history.replaceState({}, '', newUrl);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageProps.experience]);
+    }, []);
 
     const handleHomeElementUpdate =
         (fileName: 'experience' | 'introduction' | 'skills') => (newCode: string) => {
@@ -70,19 +74,24 @@ export function Page(pageProps: { experience: string; introduction: string; skil
     return (
         <>
             <article className="cv-content">
-                <StaticComponentEdit
-                    defaultCode={`render(${data.introduction})`}
-                    onEdit={handleHomeElementUpdate('introduction')}
-                />
-
-                <StaticComponentEdit
-                    defaultCode={`render(${data.experience})`}
-                    onEdit={handleHomeElementUpdate('experience')}
-                />
-                <StaticComponentEdit
-                    defaultCode={`render(${data.skills})`}
-                    onEdit={handleHomeElementUpdate('skills')}
-                />
+                {data.introduction && (
+                    <StaticComponentEdit
+                        defaultCode={`render(${data.introduction})`}
+                        onEdit={handleHomeElementUpdate('introduction')}
+                    />
+                )}
+                {data.experience && (
+                    <StaticComponentEdit
+                        defaultCode={`render(${data.experience})`}
+                        onEdit={handleHomeElementUpdate('experience')}
+                    />
+                )}
+                {data.skills && (
+                    <StaticComponentEdit
+                        defaultCode={`render(${data.skills})`}
+                        onEdit={handleHomeElementUpdate('skills')}
+                    />
+                )}
             </article>
             <RenderMark type="SSR" />
         </>
