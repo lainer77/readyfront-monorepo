@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Application } from 'express';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
@@ -33,7 +34,6 @@ export function setupGoogleAuth(app: Application): void {
                     const payload = { displayName, email: emails?.[0].value || '', id };
                     const token = jwt.sign(payload, jwtSecret, { expiresIn: '7d' });
                     return done(null, { profile, token });
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     console.log(error);
                     return done(error);
@@ -65,8 +65,8 @@ export function setupGoogleAuth(app: Application): void {
         (req, res) => {
             const user: any = req.user || {};
             const { token } = user;
-            console.log('token', token);
-            res.redirect(`/?token=${token}`);
+
+            res.redirect(`${process.env.VITE_HOST}?token=${token}`);
         },
     );
 }

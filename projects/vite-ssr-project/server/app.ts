@@ -36,7 +36,7 @@ if (isProduction) {
 setupApiRoutes(app);
 
 app.get('*', async (req, res, next) => {
-    if (req.path.startsWith('/@api/')) return next();
+    if (req.path.startsWith('/api/')) return next();
 
     const userAgentInfo = getUserAgentInfo(req.headers['user-agent'] || '');
     const deviceType = userAgentInfo.getDevice().type || 'desktop';

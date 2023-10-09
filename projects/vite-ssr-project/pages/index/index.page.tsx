@@ -45,7 +45,7 @@ export function Page(pageProps: { experience: string; introduction: string; skil
                 .put(
                     `${
                         import.meta.env.VITE_API_GATEWAY_URL || import.meta.env.VITE_HOST
-                    }/@api/cdn/html/${fileName}.html`,
+                    }/api/cdn/html/${fileName}.html`,
                     { data: code },
                     {
                         headers: {

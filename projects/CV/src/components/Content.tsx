@@ -10,7 +10,7 @@ function Content() {
         Promise.all<string>(
             files.map((file) =>
                 axios
-                    .get(`${import.meta.env.VITE_API}/@api/cdn/html/${file}.html`)
+                    .get(`${import.meta.env.VITE_API}/api/cdn/html/${file}.html`)
                     .then((res) => res.data.replace(/className/g, 'class'))
                     .catch((error) => {
                         console.error('Error fetching HTML:', error);

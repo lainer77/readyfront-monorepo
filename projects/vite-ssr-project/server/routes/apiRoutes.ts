@@ -33,12 +33,12 @@ const ensureAuthenticatedAndOwner = async (
 };
 
 export const setupApiRoutes = (app: express.Application) => {
-    app.all('/@api/*', async (req, res) => {
-        if (req.path.startsWith('/@api/')) {
+    app.all('/api/*', async (req, res) => {
+        if (req.path.startsWith('/api/')) {
             const apiEndpoint = req.path;
-            // 만약 /@api/cdn/* 요청이라면 cdn 서버로 요청 보내기
-            if (apiEndpoint.startsWith('/@api/cdn/')) {
-                const cdnEndpoint = apiEndpoint.replace('/@api/cdn/', '');
+            // 만약 /api/cdn/* 요청이라면 cdn 서버로 요청 보내기
+            if (apiEndpoint.startsWith('/api/cdn/')) {
+                const cdnEndpoint = apiEndpoint.replace('/api/cdn/', '');
 
                 const remoteUrl = `https://cdn.readyfront.co.kr/${cdnEndpoint}`;
 
