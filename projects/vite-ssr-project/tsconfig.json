@@ -7,6 +7,7 @@
             "#components/*": ["./components/*"],
             "#renderer/*": ["./renderer/*"],
             "#hooks/*": ["./hooks/*"],
+            "#atoms/*": ["./atoms/*"],
             "@common/components": ["../../packages/common-components/lib/index.ts"],
             "@common/utils": ["../../packages/common-utils/lib/index.ts"]
         },

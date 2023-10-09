@@ -10,6 +10,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export default defineConfig(({ mode }: ConfigEnv) => {
     const baseAlias = {
+        '#atoms': '/atoms',
         '#components': '/components',
         '#hooks': '/hooks',
         '#renderer': '/renderer',
@@ -20,7 +21,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             __dirname,
             '../../packages/common-components/lib/index.ts',
         ),
-        '@common/utils': path.resolve(__dirname, '../../packages/common-utils/lib/index.ts'),
+        // '@common/utils': path.resolve(__dirname, '../../packages/common-utils/lib/index.ts'),
     };
 
     const alias = mode === 'development' ? { ...baseAlias, ...devAlias } : baseAlias;
@@ -44,8 +45,12 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             'process.env': env,
         },
         optimizeDeps: {
-            exclude: ['aws-sdk', '@common/components', '@common/utils'],
-            include: ['shallowequal'],
+            exclude: [
+                'aws-sdk',
+                '@common/components',
+                // '@common/utils'
+            ],
+            include: ['@babel/runtime', 'shallowequal'],
         },
         plugins: [react(), ssr(), windiCSS()],
         resolve: { alias },

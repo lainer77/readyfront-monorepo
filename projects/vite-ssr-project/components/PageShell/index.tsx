@@ -5,6 +5,7 @@ import { PageContextProvider } from '#hooks/usePageContext';
 import { ThemeProvider } from '#hooks/useThemeContext';
 import { PageContext } from '#renderer/types';
 import React, { PropsWithChildren } from 'react';
+import { RecoilRoot } from 'recoil';
 
 import './PageShell.scss';
 import Sidebar from './Sidebar';
@@ -21,26 +22,28 @@ function PageShell({
     return (
         <React.StrictMode>
             <ThemeProvider>
-                <GlobalStyle />
+                <RecoilRoot>
+                    <GlobalStyle />
 
-                <PageContextProvider pageContext={pageContext}>
-                    <Layout>
-                        <Sidebar>
-                            <Logo />
-                            <Profile />
-                            <Link className="navitem clickable" href="/lab">
-                                Lab
-                            </Link>
-                            <Link className="navitem clickable" href="/issue">
-                                Issue
-                            </Link>
-                            <Link className="navitem clickable" href="/setting">
-                                Setting
-                            </Link>
-                        </Sidebar>
-                        <Content>{children}</Content>
-                    </Layout>
-                </PageContextProvider>
+                    <PageContextProvider pageContext={pageContext}>
+                        <Layout>
+                            <Sidebar>
+                                <Logo />
+                                <Profile />
+                                <Link className="navitem clickable" href="/lab">
+                                    Lab
+                                </Link>
+                                <Link className="navitem clickable" href="/issue">
+                                    Issue
+                                </Link>
+                                <Link className="navitem clickable" href="/setting">
+                                    Setting
+                                </Link>
+                            </Sidebar>
+                            <Content>{children}</Content>
+                        </Layout>
+                    </PageContextProvider>
+                </RecoilRoot>
             </ThemeProvider>
         </React.StrictMode>
     );
