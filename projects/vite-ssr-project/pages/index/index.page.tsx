@@ -15,6 +15,19 @@ export function Page(pageProps: { experience: string; introduction: string; skil
             pageProps.skills !== data.skills
         )
             setData(pageProps);
+        // URL에서 토큰을 추출하여 로컬 스토리지에 저장
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (token) {
+            localStorage.setItem('auth_token', token);
+
+            urlParams.delete('token');
+            const newUrl = urlParams.toString()
+                ? `${window.location.pathname}?${urlParams.toString()}`
+                : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pageProps.experience]);
 
@@ -27,19 +40,29 @@ export function Page(pageProps: { experience: string; introduction: string; skil
                     .replace(/^render\(/, '')
                     .replace(/;|,$/, '')
                     .replace(/\),?$/, '');
+            const authToken = localStorage.getItem('auth_token');
             axios
                 .put(
                     `${
                         import.meta.env.VITE_API_GATEWAY_URL || import.meta.env.VITE_HOST
                     }/@api/cdn/html/${fileName}.html`,
                     { data: code },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${authToken}`, // 헤더에 토큰을 추가합니다.
+                        },
+                    },
                 )
                 .then(() => {
                     setData((d) => ({ ...d, [fileName]: code }));
+                    alert(`${fileName}이 수정되었습니다`);
                 })
                 .catch((err) => {
                     if (err.response.status === 401) {
                         alert(err.response.data);
+                    } else if (err.response.status === 402) {
+                        alert(err.response.data);
+                        localStorage.removeItem('auth_token');
                     } else console.log(err);
                 });
         };

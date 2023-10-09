@@ -20,6 +20,6 @@ export const setupMiddleware = (app: express.Application) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    setupSession(app); // 세션
+    setupSession(app); // 세션 -> 람다라서 세션이 유지도지 않음
     setupGoogleAuth(app); // 구글 로그인
 };

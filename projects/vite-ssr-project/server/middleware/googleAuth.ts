@@ -1,4 +1,5 @@
 import { Application } from 'express';
+import jwt from 'jsonwebtoken';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 
@@ -7,8 +8,9 @@ import { getUsersTable, putUsersTable } from '../aws';
 export function setupGoogleAuth(app: Application): void {
     const clientId = process.env.VITE_GOOGLE_CLIENT_ID;
     const secretId = process.env.VITE_GOOGLE_SECRET_ID;
-    if (!clientId || !secretId)
-        throw new Error('Google clientID, clientSecret 키의 유무를 확인해주세요');
+    const jwtSecret = process.env.VITE_JWT_SECRET_KEY;
+    if (!clientId || !secretId || !jwtSecret)
+        throw new Error('Google clientID, clientSecret, jwtSecret 키의 유무를 확인해주세요');
 
     passport.use(
         new GoogleStrategy(
@@ -28,7 +30,9 @@ export function setupGoogleAuth(app: Application): void {
                             id,
                             role: 'customer', // 사용권한 customer | owner
                         });
-                    return done(null, profile);
+                    const payload = { displayName, email: emails?.[0].value || '', id };
+                    const token = jwt.sign(payload, jwtSecret, { expiresIn: '7d' });
+                    return done(null, { profile, token });
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } catch (error: any) {
                     console.log(error);
@@ -59,7 +63,10 @@ export function setupGoogleAuth(app: Application): void {
         '/auth/google/callback',
         passport.authenticate('google', { failureRedirect: '/' }),
         (req, res) => {
-            res.redirect('/');
+            const user: any = req.user || {};
+            const { token } = user;
+            console.log('token', token);
+            res.redirect(`/?token=${token}`);
         },
     );
 }

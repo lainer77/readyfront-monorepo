@@ -1,26 +1,37 @@
 import axios from 'axios';
 import express from 'express';
+import jwt from 'jsonwebtoken';
 import { Readable } from 'stream';
 
 import { getUsersTable, updateS3Object } from '../aws';
 
-// 로그인 및 권한 확인 미들웨어
 const ensureAuthenticatedAndOwner = async (
     req: express.Request,
     res: express.Response,
     next: express.NextFunction,
 ) => {
-    if (req.isAuthenticated()) {
-        const result = await getUsersTable(req.user.id);
-        if (result && result.role === 'owner') {
-            return next();
-        } else {
-            res.status(401).send('권한이 없습니다');
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (token) {
+        try {
+            const decoded: any = jwt.verify(token, process.env.VITE_JWT_SECRET_KEY as string);
+            const result = await getUsersTable(decoded.id);
+
+            if (result && result.role === 'owner') {
+                req.user = decoded;
+                return next();
+            } else {
+                res.status(401).send('권한이 없습니다');
+            }
+        } catch (error) {
+            res.status(402).send('잘못된 토큰입니다');
         }
     } else {
         res.status(401).send('구글 로그인이 필요합니다');
     }
 };
+
 export const setupApiRoutes = (app: express.Application) => {
     app.all('/@api/*', async (req, res) => {
         if (req.path.startsWith('/@api/')) {
