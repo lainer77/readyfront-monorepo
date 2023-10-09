@@ -67,6 +67,54 @@ export function generateSupplier<
     };
     return hooks;
 }
+// export function generateSupplier<
+//   T extends object,
+//   S extends { [key in keyof T]: () => T },
+//   H extends (returns: object) => object,
+//   SS extends tSupplyReturnsWrap<T, S, H>
+// >(
+//   init: () => void,
+//   supply: S,
+//   handler: H
+// ) {
+//   const generate = (s: S, preState?: Partial<T>, key?: keyof typeof supply) => {
+//     let wrapSupply: Partial<SS> | undefined;
+//     const supplyKeys = Object.keys(s) as (keyof typeof s)[];
+//     supplyKeys.forEach((_key) => {
+//       if (key === _key) {
+//         return;
+//       }
+//       const sr = s[_key];
+//       wrapSupply = {
+//         ...wrapSupply,
+//         [_key]: () => {
+//           const returns = { ...preState, ...sr() };
+//           const h = () => ({
+//             ...returns,
+//             ...handler(returns),
+//           });
+//           const temp = generate(supply, returns, _key);
+//           return {
+//             ...returns,
+//             ...temp,
+//             handler: h,
+//           };
+//         },
+//       };
+//     });
+
+//     return wrapSupply;
+//   };
+//   const hooks = {
+//     handler,
+//     init: () => {
+//       init();
+//       return hooks;
+//     },
+//     ...(generate(supply) as SS),
+//   };
+//   return hooks;
+// }
 
 /**
  * 미완성
