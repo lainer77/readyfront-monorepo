@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import { DocumentClient } from 'aws-sdk/clients/dynamodb';
 import dotenv from 'dotenv';
 
 dotenv.config(); // .env 파일을 로드하여 환경 변수 설정
@@ -13,6 +14,8 @@ AWS.config.update({
 const s3 = new AWS.S3();
 // AWS CloudFront 객체 생성
 const cloudFront = new AWS.CloudFront();
+
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 // 업데이트할 파일 정보
 // 업데이트 함수 정의
@@ -50,3 +53,36 @@ export async function updateS3Object(fileName: string, dataToUpdate: string) {
         console.error('Error updating data:', error);
     }
 }
+export interface UserTable {
+    displayName: string;
+    email: null | string;
+    id: string;
+    role: string;
+}
+export const putUsersTable = async (item: UserTable): Promise<DocumentClient.PutItemOutput> => {
+    const params: DocumentClient.PutItemInput = {
+        Item: item,
+        TableName: 'Users',
+    };
+
+    try {
+        return dynamoDB.put(params).promise();
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+export const getUsersTable = async (id: string): Promise<UserTable | undefined> => {
+    const params: DocumentClient.GetItemInput = {
+        Key: { id },
+        TableName: 'Users',
+    };
+
+    try {
+        const result = await dynamoDB.get(params).promise();
+        return result.Item as UserTable | undefined;
+    } catch (error) {
+        console.error(error);
+        return undefined;
+    }
+};

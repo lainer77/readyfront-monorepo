@@ -4,7 +4,6 @@ import { Profile } from '#components/Profile';
 import { PageContextProvider } from '#hooks/usePageContext';
 import { ThemeProvider } from '#hooks/useThemeContext';
 import { PageContext } from '#renderer/types';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import React, { PropsWithChildren } from 'react';
 
 import './PageShell.scss';
@@ -19,33 +18,29 @@ function PageShell({
     children: React.ReactNode;
     pageContext: PageContext;
 }) {
-    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-
     return (
         <React.StrictMode>
             <ThemeProvider>
                 <GlobalStyle />
 
-                <GoogleOAuthProvider clientId={clientId}>
-                    <PageContextProvider pageContext={pageContext}>
-                        <Layout>
-                            <Sidebar>
-                                <Logo />
-                                <Profile />
-                                <Link className="navitem clickable" href="/lab">
-                                    Lab
-                                </Link>
-                                <Link className="navitem clickable" href="/issue">
-                                    Issue
-                                </Link>
-                                <Link className="navitem clickable" href="/setting">
-                                    Setting
-                                </Link>
-                            </Sidebar>
-                            <Content>{children}</Content>
-                        </Layout>
-                    </PageContextProvider>
-                </GoogleOAuthProvider>
+                <PageContextProvider pageContext={pageContext}>
+                    <Layout>
+                        <Sidebar>
+                            <Logo />
+                            <Profile />
+                            <Link className="navitem clickable" href="/lab">
+                                Lab
+                            </Link>
+                            <Link className="navitem clickable" href="/issue">
+                                Issue
+                            </Link>
+                            <Link className="navitem clickable" href="/setting">
+                                Setting
+                            </Link>
+                        </Sidebar>
+                        <Content>{children}</Content>
+                    </Layout>
+                </PageContextProvider>
             </ThemeProvider>
         </React.StrictMode>
     );
@@ -81,7 +76,5 @@ function Content({ children }: PropsWithChildren) {
 }
 
 function Logo() {
-    return (
-        <img alt="rf" height={40} src="/svg/RF.svg" style={{ marginBottom: '2rem' }} width={60} />
-    );
+    return <img alt="rf" height={40} src="/svg/RF.svg" width={60} />;
 }

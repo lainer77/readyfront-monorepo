@@ -38,13 +38,6 @@ setupApiRoutes(app);
 app.get('*', async (req, res, next) => {
     if (req.path.startsWith('/@api/')) return next();
 
-    res.cookie('cookieName', 'cookieValue', {
-        httpOnly: true, // HTTP 통신만 가능하도록 설정
-        // 쿠키 옵션 설정
-        maxAge: 3600000, // 쿠키 유효 기간 (1시간)
-        secure: true, // HTTPS 프로토콜에서만 전송되도록 설정
-    });
-
     const userAgentInfo = getUserAgentInfo(req.headers['user-agent'] || '');
     const deviceType = userAgentInfo.getDevice().type || 'desktop';
 

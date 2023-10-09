@@ -36,6 +36,11 @@ export function Page(pageProps: { experience: string; introduction: string; skil
                 )
                 .then(() => {
                     setData((d) => ({ ...d, [fileName]: code }));
+                })
+                .catch((err) => {
+                    if (err.response.status === 401) {
+                        alert(err.response.data);
+                    } else console.log(err);
                 });
         };
 

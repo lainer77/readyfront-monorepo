@@ -1,16 +1,21 @@
-import { GoogleLogin } from '@react-oauth/google';
+import { FcGoogle } from 'react-icons/fc';
+import { styled } from 'styled-components';
+
+const StyleIcon = styled(FcGoogle)`
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.4rem;
+`;
 
 const GoogleLoginButton = () => {
-    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-    if (!clientId) return null;
     return (
-        <GoogleLogin
-            onSuccess={(res) => {
-                console.log(res);
-                alert('success');
+        <StyleIcon
+            onClick={() => {
+                location.href = '/auth/google';
             }}
-            auto_select
-            type="icon"
+            className="clickable"
+            height="30px"
+            width="30px"
         />
     );
 };
