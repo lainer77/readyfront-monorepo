@@ -1,0 +1,21 @@
+.portfolio {
+    > div {
+        height: 40rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    > h1 {
+        margin-left: 2rem;
+    }
+}
+.project {
+    background: gray;
+    height: 100%;
+    min-width: 40rem;
+}
