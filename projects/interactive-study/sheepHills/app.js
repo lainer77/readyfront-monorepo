@@ -1,7 +1,7 @@
-import { SheepController } from '../sheepController.js';
-import { Sun } from '../sun.js';
 import { Hill } from './hill.js';
 import { Interactive } from './interactive.js';
+import { SheepController } from './sheepController.js';
+import { Sun } from './sun.js';
 
 class App extends Interactive {
     constructor() {

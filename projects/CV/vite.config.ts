@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { defineConfig } from 'vite';
 
-import Prerender from './prerenderPlugin';
+// import Prerender from './prerenderPlugin';
 
 export default defineConfig(({ mode }) => {
     let alias;
@@ -35,9 +35,9 @@ export default defineConfig(({ mode }) => {
         },
         plugins: [
             react(),
-            Prerender({
-                routes: ['/'],
-            }),
+            // Prerender({
+            //     routes: ['/'],
+            // }),
         ],
         resolve: { alias },
     };
