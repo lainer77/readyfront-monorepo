@@ -11,9 +11,9 @@ function App() {
         <>
             {/* <Header /> */}
             <CanvasSection />
+            <Portfolio />
             <Sidebar />
             <Content />
-            <Portfolio />
             <Footer />
         </>
     );
