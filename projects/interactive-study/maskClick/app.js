@@ -29,7 +29,7 @@ class App extends CanvasResize {
             const pixel = this.hiddenCtx.getImageData(x, y, 1, 1).data;
             // 마스크 영역(값이 255)을 클릭하면 이벤트 처리
             if (pixel[0] === 255 || pixel[1] === 255 || pixel[2] === 255) {
-                console.log('고양이 부분을 클릭했습니다.');
+                alert('고양이 부분을 클릭했습니다.');
                 // 원하는 이벤트나 함수를 여기서 실행
             }
         });
