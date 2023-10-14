@@ -13,7 +13,7 @@ import {
 import { tSupplyReturnsWrap } from './ts';
 
 /**
- * recoil 함수의 사용성을 간편하게 만들어주는 함수
+ * recoil 함수의 사용성을 간편하게 만들어주는 체이닝을 지원하는 상태 관리 팩토리 함수
  * @param init - page 첫부분에서 데이터 초기화를 위한 함수
  * @param supply - atoms 공급자가 호출되어 있는 함수
  * @param handler - page 내부에서 필요한 handler 함수의 모음. supply로부터 데이터를 공급받거나 이벤트 핸들링을 진행 혹은 공통로직 구현

@@ -2,6 +2,8 @@ import Popup from '#components/Popup';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { IssuePopup } from '../_components/IssuePopup';
+
 export { PopupCotainer };
 function PopupCotainer() {
     const location = useLocation();
@@ -17,7 +19,7 @@ function PopupCotainer() {
     return (
         <>
             <Popup isOpen={isIssueCardOpen} onClose={() => navigate('/issue', { replace: true })}>
-                <div>isIssueCardOpen</div>
+                <IssuePopup />
             </Popup>
         </>
     );
