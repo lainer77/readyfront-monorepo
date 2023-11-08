@@ -3,7 +3,8 @@
     "type": "module",
     "main": "server.js",
     "scripts": {
-        "server": "node server.js"
+        "server": "node server.js",
+        "deploy": "sls deploy"
     },
     "dependencies": {
         "body-parser": "^1.20.2",

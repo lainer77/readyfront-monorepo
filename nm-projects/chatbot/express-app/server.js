@@ -73,7 +73,7 @@ async function fetchAIResponse(req, res, count = 0) {
                         role: 'user', // 메시지 역할을 user로 설정
                     },
                 ],
-                model: 'gpt-3.5-turbo', // 사용할 AI 모델
+                model: 'gpt-4-1106-preview', // 사용할 AI 모델
                 presence_penalty: 1, // 동일한 단어나 구문이 반복되는 것을 억제하는 정도
                 stop: ['Human'], // 생성된 텍스트에서 종료 구문을 설정
                 temperature: 1.1, // 모델의 출력 다양성
