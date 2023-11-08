@@ -5,7 +5,7 @@
     "workspaces": [
         "projects/*",
         "nm-projects/*",
-        "nm-projects/chatbot/*",
+        "projects/chatbot/*",
         "packages/*",
         "nm-packages/*"
     ],
