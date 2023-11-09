@@ -74,7 +74,7 @@ async function fetchAIResponse(req, res, count = 0) {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             body: JSON.stringify({
                 frequency_penalty: 1, // 일반적으로 나오지 않는 단어를 억제하는 정도
-                max_tokens: 1024, // 응답받을 메시지 최대 토큰(단어) 수 설정
+                max_tokens: 100, // 응답받을 메시지 최대 토큰(단어) 수 설정
                 messages: [
                     ...req.body.messages,
                     systemRole,
