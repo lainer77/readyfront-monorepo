@@ -1,7 +1,7 @@
 const commonjs = require('@hyrious/esbuild-plugin-commonjs').commonjs;
 const copyPlugin = require('esbuild-plugin-copy').default;
 
-module.exports = {
+module.exports = () => ({
     bundle: true,
     entryPoints: ['express-app/server.js'],
     format: 'esm',
@@ -22,4 +22,4 @@ module.exports = {
             ],
         }),
     ],
-};
+});
