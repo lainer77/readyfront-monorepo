@@ -7,7 +7,7 @@ provider:
     stage: dev
     region: ap-northeast-2
     memorySize: 1536 # mb
-    timeout: 15 # seconds
+    timeout: 30 # seconds
 
 functions:
     expressApp:
