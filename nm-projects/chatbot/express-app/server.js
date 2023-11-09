@@ -20,15 +20,25 @@ const PORT = 3000;
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const ALLOWED_HOSTS = [
-    process.env.ALLOWED_HOST || 'localhost:3000',
+    process.env.ALLOWED_HOST,
+    'localhost:3000',
     'grymj7540j.execute-api.ap-northeast-2.amazonaws.com',
 ];
 
-// __dirname을 대체하기 위한 코드
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+let localDirname;
+
+if (process.env.LAMBDA_TASK_ROOT) {
+    // Lambda 환경에서는 LAMBDA_TASK_ROOT를 사용합니다.
+    localDirname = process.env.LAMBDA_TASK_ROOT;
+} else {
+    // 로컬 환경에서는 fileURLToPath와 import.meta.url을 사용하여 __dirname을 구합니다.
+    localDirname = path.dirname(fileURLToPath(import.meta.url));
+}
+
+const appDir = process.env.LAMBDA_TASK_ROOT ? '/var/task/dist' : localDirname;
 
 // express에 public 디렉토리를 정적 호스팅 디렉토리로 추가합니다.
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(appDir, 'public')));
 
 // CORS 설정 추가
 app.use((req, res, next) => {
@@ -44,7 +54,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(appDir, 'public/index.html'));
 });
 
 function messageFilter(message) {
@@ -94,8 +104,8 @@ async function fetchAIResponse(req, res, count = 0) {
         if (count < 5 && !messageFilter(content)) fetchAIResponse(req, res, count + 1);
         else res.json({ content });
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        console.error('500Error:', error);
+        res.status(500).json({ error: 'Internal server error 500' });
     }
 }
 app.post('/api/chatbot', async (req, res) => {

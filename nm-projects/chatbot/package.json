@@ -11,8 +11,8 @@
         "server": "node express-app/server.js",
         "prod": "node dist/server.js",
         "app": "FLASK_ENV=development python3 flask-app/app.py",
-        "deploy": "sls deploy --verbose",
-        "package": "sls package --verbose",
+        "deploy": "yarn build && sls deploy --verbose",
+        "package": "yarn build && sls package --verbose",
         "offline": "sls offline",
         "build": "node build.js"
     },
@@ -20,6 +20,7 @@
         "@hyrious/esbuild-plugin-commonjs": "^0.2.2",
         "esbuild": "^0.18.10",
         "esbuild-plugin-copy": "^2.1.1",
+        "esbuild-plugin-node-externals": "^1.0.1",
         "serverless-offline": "^13.0.0",
         "serverless-python-requirements": "^6.0.0",
         "serverless-wsgi": "^3.0.2"

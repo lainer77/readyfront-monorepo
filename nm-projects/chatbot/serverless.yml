@@ -50,6 +50,7 @@ package:
 
     include:
         - dist/**
+        - package.json
         # - flask-app/**
     exclude:
         - '**'
