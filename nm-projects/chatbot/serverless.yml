@@ -1,0 +1,63 @@
+service: chatbot
+frameworkVersion: '3'
+
+provider:
+    name: aws
+    runtime: nodejs18.x
+    stage: dev
+    region: ap-northeast-2
+    memorySize: 1536 # mb
+    timeout: 15 # seconds
+
+functions:
+    expressApp:
+        handler: dist/server.handler
+        environment:
+            OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+            ALLOWED_HOST: chatbot.readyfront.co.kr
+        events:
+            - http:
+                  path: /
+                  method: any
+            - http:
+                  path: '{proxy+}'
+                  method: any
+plugins:
+    - serverless-offline
+    # - serverless-wsgi
+    # - serverless-python-requirements
+    # - serverless-plugin-include-dependencies
+custom:
+    serverless-offline:
+        noPrependStageInUrl: true
+        printOutput: true
+        prefix: ''
+    # pythonRequirements:
+    #     dockerizePip: non-linux # 비 리눅스 환경에서도 도커를 사용하여 패키징
+    # wsgi:
+    #     app: flask-app/app.app # 앱 위치 및 Flask 앱 변수 이름
+    #     packRequirements: false
+    cloudfrontInvalidate:
+        distributionIdKey: ${env:CLOUDFRONT_DISTRIBUTION_ID} # CloudFormation에서 CloudFront 배포 ID의 키 이름
+        items: ['/*'] # 모든 캐시 항목을 무효화
+
+package:
+    individually: true
+    excludeDevDependencies: true
+    # patterns:
+    #     - 'dist/**' # dist 디렉토리 아래의 모든 파일을 포함
+    #     - '!**' # 기본적으로 모든 것을 제외하도록 설정
+
+    include:
+        - dist/**
+        # - flask-app/**
+    exclude:
+        - '**'
+        # - express-app/**
+        # - express-app/node_modules/**
+        # - .envrc
+        # - README.md
+        # - package.json
+        # - sentence_transformer_layer
+        # - serverless-flask.yml
+        # - _serverless.yml

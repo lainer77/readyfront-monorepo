@@ -87,7 +87,7 @@ module.exports = {
             },
         },
         {
-            files: ['projects/chatbot/**/*', 'projects/chatbot/**/*'],
+            files: ['nm-projects/chatbot/**/*', 'nm-projects/chatbot/**/*'],
             plugins: ['@typescript-eslint'],
             env: { browser: true, es2020: true, node: true },
             settings: {
