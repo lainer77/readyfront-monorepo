@@ -1,4 +1,5 @@
 service: chatbot
+frameworkVersion: '3'
 
 provider:
     name: aws
@@ -6,11 +7,11 @@ provider:
     stage: dev
     region: ap-northeast-2
     memorySize: 1536 # mb
-    timeout: 15 # seconds
+    timeout: 30 # seconds
 
 functions:
     expressApp:
-        handler: express-app/server.handler
+        handler: dist/server.handler
         environment:
             OPENAI_API_KEY: ${env:OPENAI_API_KEY}
             ALLOWED_HOST: chatbot.readyfront.co.kr
@@ -41,14 +42,23 @@ custom:
         items: ['/*'] # 모든 캐시 항목을 무효화
 
 package:
+    individually: true
+    excludeDevDependencies: true
+    # patterns:
+    #     - 'dist/**' # dist 디렉토리 아래의 모든 파일을 포함
+    #     - '!**' # 기본적으로 모든 것을 제외하도록 설정
+
     include:
-        - express-app/**
-        - express-app/node_modules/**
+        - dist/**
+        - package.json
         # - flask-app/**
     exclude:
-        - .envrc
-        - README.md
-        - package.json
-        - sentence_transformer_layer
-        - serverless-flask.yml
-        - _serverless.yml
+        - '**'
+        # - express-app/**
+        # - express-app/node_modules/**
+        # - .envrc
+        # - README.md
+        # - package.json
+        # - sentence_transformer_layer
+        # - serverless-flask.yml
+        # - _serverless.yml

@@ -87,8 +87,9 @@ module.exports = {
             },
         },
         {
-            files: ['nm-projects/chatbot/**/*.ts?(x)', 'nm-projects/chatbot/**/*.js?(x)'],
+            files: ['nm-projects/chatbot/**/*', 'nm-projects/chatbot/**/*'],
             plugins: ['@typescript-eslint'],
+            env: { browser: true, es2020: true, node: true },
             settings: {
                 react: {
                     version: 'detect',

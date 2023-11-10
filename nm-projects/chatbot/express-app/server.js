@@ -20,15 +20,25 @@ const PORT = 3000;
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const ALLOWED_HOSTS = [
-    process.env.ALLOWED_HOST || 'localhost:3000',
+    process.env.ALLOWED_HOST,
+    'localhost:3000',
     'grymj7540j.execute-api.ap-northeast-2.amazonaws.com',
 ];
 
-// __dirname을 대체하기 위한 코드
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+let localDirname;
+
+if (process.env.LAMBDA_TASK_ROOT) {
+    // Lambda 환경에서는 LAMBDA_TASK_ROOT를 사용합니다.
+    localDirname = process.env.LAMBDA_TASK_ROOT;
+} else {
+    // 로컬 환경에서는 fileURLToPath와 import.meta.url을 사용하여 __dirname을 구합니다.
+    localDirname = path.dirname(fileURLToPath(import.meta.url));
+}
+
+const appDir = process.env.LAMBDA_TASK_ROOT ? '/var/task/dist' : localDirname;
 
 // express에 public 디렉토리를 정적 호스팅 디렉토리로 추가합니다.
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(appDir, 'public')));
 
 // CORS 설정 추가
 app.use((req, res, next) => {
@@ -44,7 +54,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(appDir, 'public/index.html'));
 });
 
 function messageFilter(message) {
@@ -64,7 +74,7 @@ async function fetchAIResponse(req, res, count = 0) {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             body: JSON.stringify({
                 frequency_penalty: 1, // 일반적으로 나오지 않는 단어를 억제하는 정도
-                max_tokens: 1024, // 응답받을 메시지 최대 토큰(단어) 수 설정
+                max_tokens: 100, // 응답받을 메시지 최대 토큰(단어) 수 설정
                 messages: [
                     ...req.body.messages,
                     systemRole,
@@ -73,7 +83,7 @@ async function fetchAIResponse(req, res, count = 0) {
                         role: 'user', // 메시지 역할을 user로 설정
                     },
                 ],
-                model: 'gpt-3.5-turbo', // 사용할 AI 모델
+                model: 'gpt-4-1106-preview', // 사용할 AI 모델
                 presence_penalty: 1, // 동일한 단어나 구문이 반복되는 것을 억제하는 정도
                 stop: ['Human'], // 생성된 텍스트에서 종료 구문을 설정
                 temperature: 1.1, // 모델의 출력 다양성
@@ -94,8 +104,8 @@ async function fetchAIResponse(req, res, count = 0) {
         if (count < 5 && !messageFilter(content)) fetchAIResponse(req, res, count + 1);
         else res.json({ content });
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        console.error('500Error:', error);
+        res.status(500).json({ error: 'Internal server error 500' });
     }
 }
 app.post('/api/chatbot', async (req, res) => {

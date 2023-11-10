@@ -1,17 +1,26 @@
 {
     "name": "chatbot",
+    "type": "module",
     "packageManager": "yarn@3.6.0",
     "private": true,
     "version": "1.0.0",
     "author": "lainer <zlepgk123@gmail.com>",
+    "main": "dist/server.js",
     "license": "MIT",
     "scripts": {
         "server": "node express-app/server.js",
+        "prod": "node dist/server.js",
         "app": "FLASK_ENV=development python3 flask-app/app.py",
-        "deploy": "sls deploy",
-        "offline": "sls offline"
+        "deploy": "yarn build && sls deploy --verbose",
+        "package": "yarn build && sls package --verbose",
+        "offline": "sls offline",
+        "build": "node build.js"
     },
     "devDependencies": {
+        "@hyrious/esbuild-plugin-commonjs": "^0.2.2",
+        "esbuild": "^0.18.10",
+        "esbuild-plugin-copy": "^2.1.1",
+        "esbuild-plugin-node-externals": "^1.0.1",
         "serverless-offline": "^13.0.0",
         "serverless-python-requirements": "^6.0.0",
         "serverless-wsgi": "^3.0.2"
