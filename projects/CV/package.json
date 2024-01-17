@@ -8,7 +8,8 @@
         "build": "tsc && vite build",
         "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
-        "deploy": "yarn build && aws s3 sync ./dist s3://cv.readyfront.co.kr --profile=readyfront-deploy --exclude 'node_modules/*'"
+        "deploy": "yarn build && aws s3 sync ./dist s3://cv.readyfront.co.kr --profile=readyfront-deploy --exclude 'node_modules/*' && yarn post-deploy",
+        "post-deploy": "aws cloudfront create-invalidation --distribution-id EQ37UTPETRMYQ --paths '/*'"
     },
     "dependencies": {
         "@common/components": "workspace:^",

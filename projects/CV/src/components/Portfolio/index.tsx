@@ -13,26 +13,26 @@ const datas = [
         site: 'https://chatbot.readyfront.co.kr',
         title: '고양이 챗봇',
     },
-    {
-        github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/mouseRect',
-        site: 'https://interactive.readyfront.co.kr/mouseRect/',
-        title: '박스 끈으로 끌어내기',
-    },
-    {
-        github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/shapeRotate',
-        site: 'https://interactive.readyfront.co.kr/shapeRotate/',
-        title: '도형 회전',
-    },
-    {
-        github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/sheepHills',
-        site: 'https://interactive.readyfront.co.kr/sheepHills/',
-        title: '언덕을 오르는 양떼',
-    },
-    {
-        github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/maskClick',
-        site: 'https://interactive.readyfront.co.kr/maskClick/',
-        title: '이미지 마스크 클릭 이벤트',
-    },
+    // {
+    //     github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/mouseRect',
+    //     site: 'https://interactive.readyfront.co.kr/mouseRect/',
+    //     title: '박스 끈으로 끌어내기',
+    // },
+    // {
+    //     github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/shapeRotate',
+    //     site: 'https://interactive.readyfront.co.kr/shapeRotate/',
+    //     title: '도형 회전',
+    // },
+    // {
+    //     github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/sheepHills',
+    //     site: 'https://interactive.readyfront.co.kr/sheepHills/',
+    //     title: '언덕을 오르는 양떼',
+    // },
+    // {
+    //     github: 'https://github.com/lainer77/readyfront-monorepo/tree/master/projects/interactive-study/maskClick',
+    //     site: 'https://interactive.readyfront.co.kr/maskClick/',
+    //     title: '이미지 마스크 클릭 이벤트',
+    // },
 ];
 
 const Portfolio: React.FC = () => {
